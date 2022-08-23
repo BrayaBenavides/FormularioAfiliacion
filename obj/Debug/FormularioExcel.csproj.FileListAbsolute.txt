@@ -1,0 +1,10 @@
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\bin\Debug\FormularioExcel.exe.config
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\bin\Debug\FormularioExcel.exe
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\bin\Debug\FormularioExcel.pdb
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.csproj.AssemblyReference.cache
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.Form1.resources
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.Properties.Resources.resources
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.csproj.GenerateResource.cache
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.csproj.CoreCompileInputs.cache
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.exe
+D:\Brayan\Documents\Programación\C#\source\FormularioExcel\obj\Debug\FormularioExcel.pdb
