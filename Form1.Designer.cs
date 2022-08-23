@@ -37,7 +37,7 @@ namespace FormularioExcel
             // 
             // BtnImportar
             // 
-            this.BtnImportar.Location = new System.Drawing.Point(35, 28);
+            this.BtnImportar.Location = new System.Drawing.Point(53, 28);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.Size = new System.Drawing.Size(75, 23);
             this.BtnImportar.TabIndex = 0;
