@@ -37,7 +37,7 @@ namespace FormularioExcel
             // 
             // BtnImportar
             // 
-            this.BtnImportar.Location = new System.Drawing.Point(55, 28);
+            this.BtnImportar.Location = new System.Drawing.Point(53, 47);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.Size = new System.Drawing.Size(75, 23);
             this.BtnImportar.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace FormularioExcel
             // LblFile
             // 
             this.LblFile.AutoSize = true;
-            this.LblFile.Location = new System.Drawing.Point(143, 33);
+            this.LblFile.Location = new System.Drawing.Point(156, 52);
             this.LblFile.Name = "LblFile";
             this.LblFile.Size = new System.Drawing.Size(35, 13);
             this.LblFile.TabIndex = 1;
@@ -57,9 +57,9 @@ namespace FormularioExcel
             // DataDetalles
             // 
             this.DataDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataDetalles.Location = new System.Drawing.Point(55, 91);
+            this.DataDetalles.Location = new System.Drawing.Point(53, 130);
             this.DataDetalles.Name = "DataDetalles";
-            this.DataDetalles.Size = new System.Drawing.Size(684, 232);
+            this.DataDetalles.Size = new System.Drawing.Size(684, 264);
             this.DataDetalles.TabIndex = 2;
             // 
             // Form1
