@@ -21,7 +21,8 @@ namespace FormularioExcel
             InitializeComponent();
 
             dt.Columns.Add("Id");
-            dt.Rows.Add(new object[] { 1 });
+            dt.Columns.Add("Nombres");
+
         }
 
         private void BtnImportar_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace FormularioExcel
                 SelectCommand = consulta
             };
 
+            adaptador.Fill(dt);
             adaptador.Fill(ds);
 
             conector.Close();
@@ -67,7 +69,7 @@ namespace FormularioExcel
 
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
-
+            
             dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
 
