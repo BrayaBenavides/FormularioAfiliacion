@@ -37,7 +37,7 @@ namespace FormularioExcel
             // 
             // BtnImportar
             // 
-            this.BtnImportar.Location = new System.Drawing.Point(35, 28);
+            this.BtnImportar.Location = new System.Drawing.Point(55, 28);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.Size = new System.Drawing.Size(75, 23);
             this.BtnImportar.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace FormularioExcel
             // LblFile
             // 
             this.LblFile.AutoSize = true;
-            this.LblFile.Location = new System.Drawing.Point(134, 33);
+            this.LblFile.Location = new System.Drawing.Point(143, 33);
             this.LblFile.Name = "LblFile";
             this.LblFile.Size = new System.Drawing.Size(35, 13);
             this.LblFile.TabIndex = 1;
