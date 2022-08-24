@@ -13,9 +13,16 @@ namespace FormularioExcel
 {
     public partial class Form1 : Form
     {
+        DataTable dt = new DataTable();
+        DataSet ds = new DataSet();
+
         public Form1()
         {
             InitializeComponent();
+
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Nombres");
+
         }
 
         private void BtnImportar_Click(object sender, EventArgs e)
@@ -34,7 +41,8 @@ namespace FormularioExcel
 
             LblFile.Text = OpenFileDialog.FileName;
         }
-    
+        
+
 
         DataView ImportarDatos(string nombrearchivo)
         {
@@ -51,15 +59,21 @@ namespace FormularioExcel
                 SelectCommand = consulta
             };
 
-            DataSet ds = new DataSet();
+            adaptador.Fill(dt);
             adaptador.Fill(ds);
 
             conector.Close();
 
             return ds.Tables[0].DefaultView;
+        }
+
+        private void TxtFiltrar_TextChanged(object sender, EventArgs e)
+        {
+            
+            dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
+            DataDetalles.DataSource = dt;
+
 
         }
-        
-
     }
 }
