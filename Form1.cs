@@ -20,7 +20,6 @@ namespace FormularioExcel
         {
             InitializeComponent();
 
-            dt.Columns.Add("Id");
             dt.Columns.Add("Nombres");
 
         }
@@ -42,7 +41,6 @@ namespace FormularioExcel
             LblFile.Text = OpenFileDialog.FileName;
         }
         
-
 
         DataView ImportarDatos(string nombrearchivo)
         {
@@ -70,9 +68,8 @@ namespace FormularioExcel
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
             
-            dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
+            dt.DefaultView.RowFilter = $"Nombres LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
-
 
         }
     }
