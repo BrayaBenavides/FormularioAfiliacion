@@ -61,7 +61,6 @@ namespace FormularioExcel
 
             adaptador.Fill(dt);
             adaptador.Fill(ds);
-
             conector.Close();
 
             return ds.Tables[0].DefaultView;
