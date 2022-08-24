@@ -73,7 +73,32 @@ namespace FormularioExcel
             dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
 
+            
 
+
+        }
+
+        private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+                if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    // user clicked yes
+                    var campo15 =Convert.ToInt32(this.DataDetalles.SelectedRows[0].Cells[0].Value);
+                }
+                else
+                {
+                    // user clicked no
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

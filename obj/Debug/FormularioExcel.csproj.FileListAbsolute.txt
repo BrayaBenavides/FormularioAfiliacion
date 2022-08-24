@@ -18,3 +18,13 @@ C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioE
 C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.CoreCompileInputs.cache
 C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.exe
 C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.pdb
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\bin\Debug\FormularioExcel.exe.config
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\bin\Debug\FormularioExcel.exe
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\bin\Debug\FormularioExcel.pdb
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.AssemblyReference.cache
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.Form1.resources
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.Properties.Resources.resources
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.GenerateResource.cache
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.CoreCompileInputs.cache
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.exe
+C:\Users\1nvitado\Documents\repositorios\FormularioAfiliacion\obj\Debug\FormularioExcel.pdb
