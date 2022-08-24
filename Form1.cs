@@ -101,12 +101,11 @@ namespace FormularioExcel
                 else
                 {
                     // user clicked no
-
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Seleccione toda la fila?");
+                MessageBox.Show("Seleccione toda la fila");
             }
         }
     }
