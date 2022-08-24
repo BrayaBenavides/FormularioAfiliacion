@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -87,6 +90,9 @@ namespace FormularioExcel
                 {
                     // user clicked yes
                     var campo15 =Convert.ToInt32(this.DataDetalles.SelectedRows[0].Cells[0].Value);
+                    string pdfPath = Path.Combine(Application.StartupPath, "Formulario-de-Afiliacion-y-Novedades.pdf");
+
+                    Process.Start(pdfPath);
                 }
                 else
                 {
@@ -94,7 +100,7 @@ namespace FormularioExcel
 
                 }
             }
-            catch (Exception).
+            catch (Exception)
             {
 
                 throw;
