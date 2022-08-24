@@ -11,7 +11,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+     
 namespace FormularioExcel
 {
     public partial class Form1 : Form
@@ -76,9 +76,6 @@ namespace FormularioExcel
             dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
 
-            
-
-
         }
 
         private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -86,11 +83,15 @@ namespace FormularioExcel
             try
             {
 
-                if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // user clicked yes
+                    
                     var campo15 =Convert.ToInt32(this.DataDetalles.SelectedRows[0].Cells[0].Value);
+                    var campo16 =Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+
                     string pdfPath = Path.Combine(Application.StartupPath, "Formulario-de-Afiliacion-y-Novedades.pdf");
+                    
 
                     Process.Start(pdfPath);
                 }
@@ -102,9 +103,11 @@ namespace FormularioExcel
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Seleccione toda la fila");
+                
             }
         }
+
+    
     }
 }

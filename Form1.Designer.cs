@@ -52,9 +52,9 @@ namespace FormularioExcel
             this.LblFile.AutoSize = true;
             this.LblFile.Location = new System.Drawing.Point(155, 57);
             this.LblFile.Name = "LblFile";
-            this.LblFile.Size = new System.Drawing.Size(35, 13);
+            this.LblFile.Size = new System.Drawing.Size(30, 13);
             this.LblFile.TabIndex = 1;
-            this.LblFile.Text = "label1";
+            this.LblFile.Text = "Ruta";
             // 
             // DataDetalles
             // 
