@@ -18,3 +18,13 @@ D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\obj\Debug\Formu
 D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.CoreCompileInputs.cache
 D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\obj\Debug\FormularioExcel.exe
 D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\obj\Debug\FormularioExcel.pdb
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\bin\Debug\FormularioExcel.exe.config
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\bin\Debug\FormularioExcel.exe
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\bin\Debug\FormularioExcel.pdb
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.AssemblyReference.cache
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.Form1.resources
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.Properties.Resources.resources
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.GenerateResource.cache
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.csproj.CoreCompileInputs.cache
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.exe
+C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\obj\Debug\FormularioExcel.pdb
