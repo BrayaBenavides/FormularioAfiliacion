@@ -3,24 +3,32 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
 namespace FormularioExcel
 {
     public partial class Form1 : Form
     {
+        
         DataTable dt = new DataTable();
         DataSet ds = new DataSet();
 
         public Form1()
         {
             InitializeComponent();
+            
 
-            dt.Columns.Add("Nombres");
+            dt.Columns.Add("Id");
 
         }
 
@@ -67,9 +75,39 @@ namespace FormularioExcel
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
             
-            dt.DefaultView.RowFilter = $"Nombres LIKE '{TxtFiltrar.Text}%'";
+            dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
+        }
 
+        private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            try
+            {
+                if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                { 
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        var prueba = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
+
+                        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new FileStream("C:/Users/ticdesarrollo01/source/repos/FormularioAfiliacion/bin/Debug/Prueba.pdf", FileMode.Create, FileAccess.Write)));
+                        Document document = new Document(pdfDocument);
+
+                        document.Add(new Paragraph(prueba));
+
+                        document.Close();
+                    }
+                }
+                else
+                {
+                    // user clicked no
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Seleccione toda la fila?");
+            }
         }
     }
 }

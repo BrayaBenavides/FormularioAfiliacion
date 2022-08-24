@@ -63,6 +63,7 @@ namespace FormularioExcel
             this.DataDetalles.Name = "DataDetalles";
             this.DataDetalles.Size = new System.Drawing.Size(684, 264);
             this.DataDetalles.TabIndex = 2;
+            this.DataDetalles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataDetalles_CellDoubleClick);
             // 
             // TxtFiltrar
             // 
