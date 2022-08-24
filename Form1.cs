@@ -94,7 +94,7 @@ namespace FormularioExcel
 
                 }
             }
-            catch (Exception)
+            catch (Exception).
             {
 
                 throw;
