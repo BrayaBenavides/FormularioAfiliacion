@@ -105,7 +105,7 @@ namespace FormularioExcel
             }
             catch (Exception)
             {
-                MessageBox.Show("Seleccione toda la fila");
+                MessageBox.Show("Seleccione toda la fila")
             }
         }
     }
