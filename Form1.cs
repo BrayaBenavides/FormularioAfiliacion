@@ -7,24 +7,28 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-     
+
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+
 namespace FormularioExcel
 {
     public partial class Form1 : Form
     {
+        
         DataTable dt = new DataTable();
         DataSet ds = new DataSet();
 
         public Form1()
         {
             InitializeComponent();
+            
 
             dt.Columns.Add("Id");
-            dt.Columns.Add("Nombres");
 
         }
 
@@ -46,7 +50,6 @@ namespace FormularioExcel
         }
         
 
-
         DataView ImportarDatos(string nombrearchivo)
         {
             string conexion = string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Extended properties = 'Excel 12.0;'", nombrearchivo);
@@ -64,7 +67,6 @@ namespace FormularioExcel
 
             adaptador.Fill(dt);
             adaptador.Fill(ds);
-
             conector.Close();
 
             return ds.Tables[0].DefaultView;
@@ -75,39 +77,36 @@ namespace FormularioExcel
             
             dt.DefaultView.RowFilter = $"Id LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
-
         }
 
         private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             try
             {
-
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    // user clicked yes
-                    
-                    var campo15 =Convert.ToInt32(this.DataDetalles.SelectedRows[0].Cells[0].Value);
-                    var campo16 =Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+                { 
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        var prueba = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
 
-                    string pdfPath = Path.Combine(Application.StartupPath, "Formulario-de-Afiliacion-y-Novedades.pdf");
-                    
+                        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new FileStream("C:/Users/ticdesarrollo01/source/repos/FormularioAfiliacion/bin/Debug/Prueba.pdf", FileMode.Create, FileAccess.Write)));
+                        Document document = new Document(pdfDocument);
 
-                    Process.Start(pdfPath);
+                        document.Add(new Paragraph(prueba));
+
+                        document.Close();
+                    }
                 }
                 else
                 {
                     // user clicked no
-
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("Seleccione toda la fila");
-                
             }
         }
-
-    
     }
 }
