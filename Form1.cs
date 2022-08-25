@@ -74,9 +74,7 @@ namespace FormularioExcel
 
         private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            List<string> Excel = new List<string>();
            
-
             try
             {
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
