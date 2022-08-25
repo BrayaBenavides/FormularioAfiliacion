@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace FormularioExcel
 {
@@ -36,7 +29,7 @@ namespace FormularioExcel
         {
             OpenFileDialog OpenFileDialog = new OpenFileDialog
             {
-                Filter = "Excel | *.csv; *.xlsx;",
+                Filter = "Excel | *.xlsx;",
                 Title = "Seleccionar archivo"
 
             };
@@ -81,27 +74,51 @@ namespace FormularioExcel
 
         private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            List<string> Excel = new List<string>();
            
+
             try
             {
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 { 
-                    for (int i = 1; i <= 3; i++)
-                    {
-                        var prueba = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
+                        var Nombres = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+                        var Papellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
+                        var Sapellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
 
-                        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new FileStream("C:/Users/ticdesarrollo01/source/repos/FormularioAfiliacion/bin/Debug/Prueba.pdf", FileMode.Create, FileAccess.Write)));
-                        Document document = new Document(pdfDocument);
+                        var NoIdentidad = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[5].Value);
 
-                        document.Add(new Paragraph(prueba));
+                        string pdfTemplate = @"D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\Formulario.pdf";
+                        PdfReader pdfReader = new PdfReader(pdfTemplate);
+                        AcroFields af = pdfReader.AcroFields;
+                        List<string> campos = new List<string>();
+                        foreach (KeyValuePair<string, AcroFields.Item> kvp in af.Fields)
+                        {
+                            string fieldName = kvp.Key.ToString();
+                            string fieldValue = af.GetField(kvp.Key.ToString());
+                            campos.Add(fieldName + " " + fieldValue);
+                        }
 
-                        document.Close();
-                    }
+                        File.WriteAllLines("campos.txt", campos);
+                        string newFile = @"C:\Users\Brayan\Documents\" + Nombres + " " + Papellido + ".pdf";
+                        pdfReader = new PdfReader(pdfTemplate);
+                        PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
+                        AcroFields pdfFormFields = pdfStamper.AcroFields;
+
+                        pdfFormFields.SetField("Texto16", Nombres);
+                        pdfFormFields.SetField("Texto17", Papellido);
+                        pdfFormFields.SetField("Texto18", Sapellido);
+                        pdfFormFields.SetField("Casilla de verificación46", "0");
+                        pdfFormFields.SetField("Texto19", NoIdentidad);
+
+                        pdfStamper.FormFlattening = true;
+                        pdfStamper.Close();
+
+                        Process.Start(newFile); 
                 }
                 else
                 {
-                    // user clicked no
-                }
+                    MessageBox.Show("Error");
+                }          
             }
             catch (Exception)
             {
