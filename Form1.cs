@@ -11,9 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
+using BitMiracle.Docotic.Pdf;
+
+
 
 namespace FormularioExcel
 {
@@ -90,13 +90,9 @@ namespace FormularioExcel
                     {
                         var prueba = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
 
-                        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(new FileStream("C:/Users/ticdesarrollo01/source/repos/FormularioAfiliacion/bin/Debug/Prueba.pdf", FileMode.Create, FileAccess.Write)));
-                        Document document = new Document(pdfDocument);
-
-                        document.Add(new Paragraph(prueba));
-
-                        document.Close();
                     }
+
+
                 }
                 else
                 {
