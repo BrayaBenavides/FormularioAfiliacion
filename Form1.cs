@@ -79,13 +79,7 @@ namespace FormularioExcel
             {
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    var Nombres = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
-                    var Papellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
-                    var Sapellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-
-                    var NoIdentidad = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[5].Value);
-
-
+                    
                     string pdfTemplate = @"C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\Formulario.pdf";
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     AcroFields af = pdfReader.AcroFields;
@@ -97,6 +91,13 @@ namespace FormularioExcel
                         campos.Add(fieldName + " " + fieldValue);
                     }
 
+                    var Nombres = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+                    var Papellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
+                    var Sapellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Tdocumento = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[4].Value);
+                    var NoIdentidad = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[5].Value);
+
+
                     File.WriteAllLines("campos.txt", campos);
                     string newFile = @"C:\Users\ticdesarrollo01\Downloads\" + Nombres + " " + Papellido + ".pdf";
                     pdfReader = new PdfReader(pdfTemplate);
@@ -106,7 +107,46 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto16", Nombres);
                     pdfFormFields.SetField("Texto17", Papellido);
                     pdfFormFields.SetField("Texto18", Sapellido);
-                    pdfFormFields.SetField("Casilla de verificación46", "0");
+
+                    switch (Tdocumento)
+                    {
+                        case "NIT":
+                            pdfFormFields.SetField("Casilla de verificación45", "0");
+                            break;
+
+                        case "C.C.":                         
+                            pdfFormFields.SetField("Casilla de verificación46", "0");
+                            break;
+
+                        case "C.E.":
+                            pdfFormFields.SetField("Casilla de verificación47", "0");
+                            break;
+
+                        case "PA":
+                            pdfFormFields.SetField("Casilla de verificación48", "0");
+                            break;
+
+                        case "C.D.":
+                            pdfFormFields.SetField("Casilla de verificación49", "0");
+                            break;
+
+                        case "T.I.":
+                            pdfFormFields.SetField("Casilla de verificación50", "0");
+                            break;
+
+                        case "PE":
+                            pdfFormFields.SetField("Casilla de verificación51", "0");
+                            break;
+
+                        case "PT":           
+                            pdfFormFields.SetField("Casilla de verificación52", "0");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error en el tipo de documento");
+                            break;
+                    }
+
                     pdfFormFields.SetField("Texto19", NoIdentidad);
 
                     pdfStamper.FormFlattening = true;
