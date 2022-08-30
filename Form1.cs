@@ -91,9 +91,14 @@ namespace FormularioExcel
                         campos.Add(fieldName + " " + fieldValue);
                     }
 
-                    var Nombres = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
-                    var Papellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
-                    var Sapellido = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Empleador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+                    var Trabajador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
+                    var Conyuge = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
+                    var Beneficiario1 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Beneficiario2 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Beneficiario3 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Beneficiario4 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
+                    var Beneficiario5 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
                     
 
 
