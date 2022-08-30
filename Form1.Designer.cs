@@ -34,12 +34,13 @@ namespace FormularioExcel
             this.DataDetalles = new System.Windows.Forms.DataGridView();
             this.TxtFiltrar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnExportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataDetalles)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnImportar
             // 
-            this.BtnImportar.Location = new System.Drawing.Point(53, 52);
+            this.BtnImportar.Location = new System.Drawing.Point(53, 47);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.Size = new System.Drawing.Size(75, 23);
             this.BtnImportar.TabIndex = 0;
@@ -50,7 +51,7 @@ namespace FormularioExcel
             // LblFile
             // 
             this.LblFile.AutoSize = true;
-            this.LblFile.Location = new System.Drawing.Point(155, 57);
+            this.LblFile.Location = new System.Drawing.Point(134, 52);
             this.LblFile.Name = "LblFile";
             this.LblFile.Size = new System.Drawing.Size(35, 13);
             this.LblFile.TabIndex = 1;
@@ -59,15 +60,14 @@ namespace FormularioExcel
             // DataDetalles
             // 
             this.DataDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataDetalles.Location = new System.Drawing.Point(53, 130);
+            this.DataDetalles.Location = new System.Drawing.Point(53, 98);
             this.DataDetalles.Name = "DataDetalles";
             this.DataDetalles.Size = new System.Drawing.Size(684, 264);
             this.DataDetalles.TabIndex = 2;
-            this.DataDetalles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataDetalles_CellDoubleClick);
             // 
             // TxtFiltrar
             // 
-            this.TxtFiltrar.Location = new System.Drawing.Point(637, 90);
+            this.TxtFiltrar.Location = new System.Drawing.Point(637, 50);
             this.TxtFiltrar.Name = "TxtFiltrar";
             this.TxtFiltrar.Size = new System.Drawing.Size(100, 20);
             this.TxtFiltrar.TabIndex = 3;
@@ -76,17 +76,28 @@ namespace FormularioExcel
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(599, 93);
+            this.label1.Location = new System.Drawing.Point(599, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Filtrar";
+            // 
+            // BtnExportar
+            // 
+            this.BtnExportar.Location = new System.Drawing.Point(646, 391);
+            this.BtnExportar.Name = "BtnExportar";
+            this.BtnExportar.Size = new System.Drawing.Size(91, 23);
+            this.BtnExportar.TabIndex = 7;
+            this.BtnExportar.Text = "Exportar PDF";
+            this.BtnExportar.UseVisualStyleBackColor = true;
+            this.BtnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnExportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtFiltrar);
             this.Controls.Add(this.DataDetalles);
@@ -107,6 +118,7 @@ namespace FormularioExcel
         private System.Windows.Forms.DataGridView DataDetalles;
         private System.Windows.Forms.TextBox TxtFiltrar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BtnExportar;
     }
 }
 
