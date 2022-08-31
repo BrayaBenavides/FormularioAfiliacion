@@ -40,7 +40,7 @@ namespace FormularioExcel
             // 
             // BtnImportar
             // 
-            this.BtnImportar.Location = new System.Drawing.Point(53, 32);
+            this.BtnImportar.Location = new System.Drawing.Point(53, 47);
             this.BtnImportar.Name = "BtnImportar";
             this.BtnImportar.Size = new System.Drawing.Size(75, 23);
             this.BtnImportar.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace FormularioExcel
             // LblFile
             // 
             this.LblFile.AutoSize = true;
-            this.LblFile.Location = new System.Drawing.Point(144, 37);
+            this.LblFile.Location = new System.Drawing.Point(134, 52);
             this.LblFile.Name = "LblFile";
             this.LblFile.Size = new System.Drawing.Size(35, 13);
             this.LblFile.TabIndex = 1;
@@ -60,14 +60,14 @@ namespace FormularioExcel
             // DataDetalles
             // 
             this.DataDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataDetalles.Location = new System.Drawing.Point(53, 73);
+            this.DataDetalles.Location = new System.Drawing.Point(53, 98);
             this.DataDetalles.Name = "DataDetalles";
-            this.DataDetalles.Size = new System.Drawing.Size(684, 301);
+            this.DataDetalles.Size = new System.Drawing.Size(684, 264);
             this.DataDetalles.TabIndex = 2;
             // 
             // TxtFiltrar
             // 
-            this.TxtFiltrar.Location = new System.Drawing.Point(637, 32);
+            this.TxtFiltrar.Location = new System.Drawing.Point(637, 50);
             this.TxtFiltrar.Name = "TxtFiltrar";
             this.TxtFiltrar.Size = new System.Drawing.Size(100, 20);
             this.TxtFiltrar.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace FormularioExcel
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(599, 39);
+            this.label1.Location = new System.Drawing.Point(599, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 4;
@@ -84,11 +84,11 @@ namespace FormularioExcel
             // 
             // BtnExportar
             // 
-            this.BtnExportar.Location = new System.Drawing.Point(662, 395);
+            this.BtnExportar.Location = new System.Drawing.Point(646, 391);
             this.BtnExportar.Name = "BtnExportar";
-            this.BtnExportar.Size = new System.Drawing.Size(75, 23);
-            this.BtnExportar.TabIndex = 6;
-            this.BtnExportar.Text = "Exportar";
+            this.BtnExportar.Size = new System.Drawing.Size(91, 23);
+            this.BtnExportar.TabIndex = 7;
+            this.BtnExportar.Text = "Exportar PDF";
             this.BtnExportar.UseVisualStyleBackColor = true;
             this.BtnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
             // 
