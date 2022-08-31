@@ -73,13 +73,14 @@ namespace FormularioExcel
             DataDetalles.DataSource = dt;
         }
 
-        private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void BtnExportar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
+
                     string pdfTemplate = @"C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\Formulario.pdf";
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     AcroFields af = pdfReader.AcroFields;
@@ -114,7 +115,7 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación45", "0");
                             break;
 
-                        case "C.C.":                         
+                        case "C.C.":
                             pdfFormFields.SetField("Casilla de verificación46", "0");
                             break;
 
@@ -138,7 +139,7 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación51", "0");
                             break;
 
-                        case "PT":           
+                        case "PT":
                             pdfFormFields.SetField("Casilla de verificación52", "0");
                             break;
 
@@ -166,7 +167,6 @@ namespace FormularioExcel
             }
 
         }
-
     }
 }
 
