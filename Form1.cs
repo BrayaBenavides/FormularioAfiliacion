@@ -73,14 +73,21 @@ namespace FormularioExcel
             DataDetalles.DataSource = dt;
         }
 
-        private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        string Empleador;
+        string Trabajador;
+        string Conyuge;
+        string Beneficiario1;
+        string Beneficiario2;
+        string Beneficiario3;
+        private void BtnExportar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    string pdfTemplate = @"C:\Users\ticdesarrollo01\source\repos\FormularioAfiliacion\Formulario.pdf";
+                    string pdfTemplate = @"D:\Brayan\Documents\Programación\C#\source\FormularioExcel\Formulario.pdf";
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     AcroFields af = pdfReader.AcroFields;
                     List<string> campos = new List<string>();
@@ -91,35 +98,89 @@ namespace FormularioExcel
                         campos.Add(fieldName + " " + fieldValue);
                     }
 
-                    var Empleador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
-                    var Trabajador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[1].Value);
-                    var Conyuge = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[2].Value);
-                    var Beneficiario1 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-                    var Beneficiario2 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-                    var Beneficiario3 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-                    var Beneficiario4 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-                    var Beneficiario5 = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[3].Value);
-                    
+
+                    //Ciclo para recorrer y almacenar datos del Empleador
+                    List<string> DatosEmpleador = new List<string>();
+                    string[] ArrayEmpleador = new string[7];
+                    for (int i = 1; i <= 7; i++)
+                    {
+                        Empleador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
+                        DatosEmpleador.Add(Empleador);
+                    }
+                    ArrayEmpleador = DatosEmpleador.ToArray();
+
+
+                    //Ciclo para recorrer y almacenar datos del Trabajador
+                    string[] ArrayTrabajador = new string[38];
+                    List<string> DatosTrabajador = new List<string>();
+                    for (int i = 6; i <= 43; i++)
+                    {
+                        Trabajador = Convert.ToString(this.DataDetalles.SelectedRows[0].Cells[i].Value);
+                        DatosTrabajador.Add(Trabajador);
+                    }
+                    ArrayTrabajador = DatosTrabajador.ToArray();
+
+
+                    //Ciclo para recorrer y almacenar datos del Conyuge
+                    string[] ArrayConyuge = new string[29];
+                    List<string> DatosConyuge = new List<string>();
+                    for (int i = 6; i <= 34; i++)
+                    {
+                        Conyuge = Convert.ToString(this.DataDetalles.SelectedRows[1].Cells[i].Value);
+                        DatosConyuge.Add(Conyuge);
+                    }
+                    ArrayConyuge = DatosConyuge.ToArray();
+
+
+                    //Ciclo para recorrer y almacenar datos Beneficiario1
+                    string[] ArrayBeneficiario1 = new string[26];
+                    List<string> DatosBeneficiario1 = new List<string>();
+                    for (int i = 6; i <= 32; i++)
+                    {
+                        Beneficiario1 = Convert.ToString(this.DataDetalles.SelectedRows[2].Cells[i].Value);
+                        DatosBeneficiario1.Add(Beneficiario1);
+                    }
+                    ArrayBeneficiario1 = DatosBeneficiario1.ToArray();
+
+
+                    //Ciclo para recorrer y almacenar datos Beneficiario2
+                    string[] ArrayBeneficiario2 = new string[26];
+                    List<string> DatosBeneficiario2 = new List<string>();
+                    for (int i = 6; i <= 32; i++)
+                    {
+                        Beneficiario2 = Convert.ToString(this.DataDetalles.SelectedRows[3].Cells[i].Value);
+                        DatosBeneficiario2.Add(Beneficiario2);
+                    }
+                    ArrayBeneficiario2 = DatosBeneficiario2.ToArray();
+
+
+                    //Ciclo para recorrer y almacenar datos Beneficiario3
+                    string[] ArrayBeneficiario3 = new string[26];
+                    List<string> DatosBeneficiario3 = new List<string>();
+                    for (int i = 6; i <= 32; i++)
+                    {
+                        Beneficiario3 = Convert.ToString(this.DataDetalles.SelectedRows[4].Cells[i].Value);
+                        DatosBeneficiario3.Add(Beneficiario3);
+                    }
+                    ArrayBeneficiario3 = DatosBeneficiario3.ToArray();
 
 
                     File.WriteAllLines("campos.txt", campos);
-                    string newFile = @"C:\Users\ticdesarrollo01\Downloads\" + Nombres + " " + Papellido + ".pdf";
+                    string newFile = @"C:\Users\Brayan\Downloads\" + ArrayTrabajador[6] + " " + ArrayTrabajador[8] + ".pdf";
                     pdfReader = new PdfReader(pdfTemplate);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
                     AcroFields pdfFormFields = pdfStamper.AcroFields;
 
-
-
                     //1. TIPO DE NOVEDAD
 
-                    switch ( )  
+                    switch (ArrayEmpleador[0])
                     {
                         case "1": // Afiliación
-                            pdfFormFields.SetField("Casilla de verificación1", "0"); 
+                            pdfFormFields.SetField("Casilla de verificación1", "0");
                             break;
 
                         case "2": // Novedad
-                            pdfFormFields.SetField("Casilla de verificación2", "0"); 
+                            pdfFormFields.SetField("Casilla de verificación2", "0");
                             break;
 
                         case "3": // Traslado
@@ -132,14 +193,13 @@ namespace FormularioExcel
                     }
 
                     //Fecha de radicación
-                    pdfFormFields.SetField("Texto1", " "); // Día 
-                    pdfFormFields.SetField("Texto2", " "); // Mes 
-                    pdfFormFields.SetField("Texto3", " "); // Año 
-
+                    pdfFormFields.SetField("Texto1", ArrayEmpleador[6].Substring(3, 2)); // Día 
+                    pdfFormFields.SetField("Texto2", ArrayEmpleador[6].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto3", ArrayEmpleador[6].Substring(6, 4)); // Año 
 
                     //3. DATOS DEL EMPLEADOR O ENTIDAD PAGADORA
 
-                    switch ( ) // Tipo de identidad 
+                    switch (ArrayEmpleador[1]) // Tipo de identidad 
                     {
                         case "7": // Nit
                             pdfFormFields.SetField("Casilla de verificación16", "0");
@@ -174,11 +234,11 @@ namespace FormularioExcel
                             break;
                     }
 
-                    pdfFormFields.SetField("Texto7", " "); // No. de identidad pagadora
-                    pdfFormFields.SetField("Texto9", " "); // Nombre o Razón Social
+                    pdfFormFields.SetField("Texto7", ArrayEmpleador[2] + "-" + ArrayEmpleador[3]); // No. de identidad pagadora
+                    pdfFormFields.SetField("Texto9", "Sin nombre"); // Nombre o Razón Social
 
                     //Sector
-                    switch ( ) 
+                    switch (ArrayEmpleador[4])
                     {
                         case "1":  // Oficial Público
                             pdfFormFields.SetField("Casilla de verificación26", "0");
@@ -203,19 +263,20 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto11", " "); // Teléfono
 
 
+
                     // 5. DATOS BÁSICOS TRABAJADOR INDEPENDIENTE O PENSIONADO 
 
-                    pdfFormFields.SetField("Texto16", " "); // Nombres 
-                    pdfFormFields.SetField("Texto17", " "); // Primer apellido
-                    pdfFormFields.SetField("Texto18", " "); // Segundo apellido
+                    pdfFormFields.SetField("Texto16", ArrayTrabajador[6] + " " + ArrayTrabajador[7]); // Nombres 
+                    pdfFormFields.SetField("Texto17", ArrayTrabajador[8]); // Primer apellido
+                    pdfFormFields.SetField("Texto18", ArrayTrabajador[9]); // Segundo apellido
 
-                    switch ( )
+                    switch (ArrayTrabajador[3])
                     {
                         case "7": // Nit
                             pdfFormFields.SetField("Casilla de verificación45", "0");
                             break;
 
-                        case "C.C.":                         
+                        case "1": //Cédula de ciudadania
                             pdfFormFields.SetField("Casilla de verificación46", "0");
                             break;
 
@@ -239,7 +300,7 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación51", "0");
                             break;
 
-                        case "PT":           
+                        case "PT":
                             pdfFormFields.SetField("Casilla de verificación52", "0");
                             break;
 
@@ -248,10 +309,10 @@ namespace FormularioExcel
                             break;
                     }
 
-                    pdfFormFields.SetField("Texto19", " "); //No. documento
+                    pdfFormFields.SetField("Texto19", ArrayTrabajador[4]); //No. documento
 
                     //Estado Civil
-                    switch ( ) 
+                    switch (ArrayTrabajador[13])
                     {
                         case "1": // Soltero (SO)
                             pdfFormFields.SetField("Casilla de verificación53", "0");
@@ -279,12 +340,12 @@ namespace FormularioExcel
                     }
 
                     //Fecha de nacimiento
-                    pdfFormFields.SetField("Texto20", " "); // Año
-                    pdfFormFields.SetField("Texto21", " "); // Mes 
-                    pdfFormFields.SetField("Texto22", " "); // Día
+                    pdfFormFields.SetField("Texto20", ArrayTrabajador[10].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto21", ArrayTrabajador[10].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto22", ArrayTrabajador[10].Substring(3, 2)); // Día
 
                     //Género
-                    switch ( ) 
+                    switch (ArrayTrabajador[11])
                     {
                         case "2": // Masculino(M)
                             pdfFormFields.SetField("Casilla de verificación58", "0");
@@ -304,7 +365,7 @@ namespace FormularioExcel
                     }
 
                     //Nivel Ocupacional
-                    switch ( ) 
+                    switch (ArrayTrabajador[14])
                     {
                         case "1": // Operativo 
                             pdfFormFields.SetField("Casilla de verificación73", "0");
@@ -340,47 +401,47 @@ namespace FormularioExcel
                     }
 
                     //Nivel Educativo
-                    switch () 
+                    switch (ArrayTrabajador[14])
                     {
                         case "1": // Ninguno 
                             pdfFormFields.SetField("Casilla de verificación61", "0");
-                        break;
+                            break;
 
                         case "2": // Primaria
                             pdfFormFields.SetField("Casilla de verificación62", "0");
-                        break;
+                            break;
 
                         case "3": // Secundaria
                             pdfFormFields.SetField("Casilla de verificación63", "0");
-                        break;
+                            break;
 
                         case "4": // Técnico
                             pdfFormFields.SetField("Casilla de verificación64", "0");
-                        break;
+                            break;
 
                         case "5": // profesional
                             pdfFormFields.SetField("Casilla de verificación65", "0");
-                        break;
+                            break;
 
                         case "6": // Otro
                             pdfFormFields.SetField("Casilla de verificación66", "0");
-                        break;
+                            break;
 
                         default:
                             MessageBox.Show("Error, nivel ocupacional");
-                        break;
+                            break;
                     }
 
                     //Ingreso a la empresa
-                    pdfFormFields.SetField("Texto101", " "); // Año
-                    pdfFormFields.SetField("Texto24", " "); // Mes 
-                    pdfFormFields.SetField("Texto25", " "); // Día
+                    pdfFormFields.SetField("Texto101", ArrayTrabajador[15].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto24", ArrayTrabajador[15].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto25", ArrayTrabajador[15].Substring(3, 2)); // Día
 
-                    
-                    pdfFormFields.SetField("Texto26", " "); // Horas/mes
+
+                    pdfFormFields.SetField("Texto26", ArrayTrabajador[16]); // Horas/mes
 
                     //Trabajador
-                    switch () 
+                    switch (ArrayTrabajador[35])
                     {
                         case "1": // urbano(UR) 
                             pdfFormFields.SetField("Casilla de verificación74", "0");
@@ -396,10 +457,10 @@ namespace FormularioExcel
                     }
 
                     //Salario básico/mesada
-                    pdfFormFields.SetField("Texto27", " ");
+                    pdfFormFields.SetField("Texto27", ArrayTrabajador[17]);
 
                     //Celular
-                    pdfFormFields.SetField("Texto28", " ");
+                    pdfFormFields.SetField("Texto28", ArrayTrabajador[19]);
 
                     //EPS (Solo para independientes)
                     pdfFormFields.SetField("Texto29", " ");
@@ -408,16 +469,35 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto30", " ");
 
                     //Dirección vivienda
-                    pdfFormFields.SetField("Texto100", " ");
+                    pdfFormFields.SetField("Texto100", ArrayTrabajador[20]);
 
                     //Municipio
-                    pdfFormFields.SetField("Texto35", " ");
+                    switch (ArrayTrabajador[22])
+                    {
+                        case "11001":
+                            pdfFormFields.SetField("Texto35", "BOGOTA D.C");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error de municipio");
+                            break;
+                    }
 
                     //Departamento
-                    pdfFormFields.SetField("Texto32", " ");
+                    switch (ArrayTrabajador[21])
+                    {
+                        case "11":
+                            pdfFormFields.SetField("Texto32", "BOGOTA");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error de departamento");
+                            break;
+                    }
+
 
                     //Zona vivienda
-                    switch () 
+                    switch (ArrayTrabajador[36])
                     {
                         case "1": // urbano(UR) 
                             pdfFormFields.SetField("Casilla de verificación77", "0");
@@ -433,7 +513,7 @@ namespace FormularioExcel
                     }
 
                     //Teléfono vivienda
-                    pdfFormFields.SetField("Texto31", " ");
+                    pdfFormFields.SetField("Texto31", ArrayTrabajador[18]);
 
                     //Dirección trabajo
                     pdfFormFields.SetField("Texto38", " ");
@@ -445,7 +525,7 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto102", " ");
 
                     //Zona Trabajo
-                    switch () 
+                    switch (ArrayTrabajador[37])
                     {
                         case "1": // urbano(UR) 
                             pdfFormFields.SetField("Casilla de verificación78", "0");
@@ -464,18 +544,19 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto33", " ");
 
                     //Correo Electrónico
-                    pdfFormFields.SetField("Texto39", " ");
+                    pdfFormFields.SetField("Texto39", ArrayTrabajador[23]);
 
                     //País y Ciudad de Residencia (Solo para Residentes en el Exterior)
-                    pdfFormFields.SetField("Texto40", " ");
+                    pdfFormFields.SetField("Texto40", "Colombia");
 
                     //Programa (Sólo no dependientes)
                     pdfFormFields.SetField("Texto41", " ");
 
 
+
                     //7. Información del cónyuge o compañer@
 
-                    switch ( ) 
+                    switch (ArrayConyuge[3])
                     {
                         case "1": // Cedula de ciudadania (C.C.)
                             pdfFormFields.SetField("Casilla de verificación82", "0");
@@ -510,15 +591,15 @@ namespace FormularioExcel
                             break;
                     }
 
-                    pdfFormFields.SetField("Texto47", ""); //No. documento Conyuge
+                    pdfFormFields.SetField("Texto47", ArrayConyuge[4]); //No. documento Conyuge
 
                     //Fecha de nacimiento
-                    pdfFormFields.SetField("Texto48", " "); // Año
-                    pdfFormFields.SetField("Texto49", " "); // Mes 
-                    pdfFormFields.SetField("Texto50", " "); // Día
+                    pdfFormFields.SetField("Texto48", ArrayConyuge[10].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto49", ArrayConyuge[10].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto50", ArrayConyuge[10].Substring(3, 2)); // Día
 
                     //Género Conyuge
-                    switch ( ) 
+                    switch (ArrayConyuge[11])
                     {
                         case "2": // Masculino(M)
                             pdfFormFields.SetField("Casilla de verificación89", "0");
@@ -538,7 +619,7 @@ namespace FormularioExcel
                     }
 
                     //Trabaja Conyuge
-                    switch ( ) 
+                    switch (ArrayConyuge[28])
                     {
                         case "SI": // Si
                             pdfFormFields.SetField("Casilla de verificación92", "0");
@@ -548,8 +629,8 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación93", "0");
                             break;
 
-                        case "NULL":  
-                            
+                        case "NULL":
+
                             break;
 
                         default:
@@ -558,28 +639,28 @@ namespace FormularioExcel
                     }
 
                     //salario básico conyuge 
-                    pdfFormFields.SetField("Texto51", " ");
+                    pdfFormFields.SetField("Texto51", ArrayConyuge[17]);
 
                     //Fecha de Ingreso a la empresa
                     pdfFormFields.SetField("Texto52", " "); // Año
                     pdfFormFields.SetField("Texto53", " "); // Mes 
                     pdfFormFields.SetField("Texto54", " "); // Día
 
-                    pdfFormFields.SetField("Texto57", " "); // Nombres 
-                    pdfFormFields.SetField("Texto56", " "); // Primer apellido
-                    pdfFormFields.SetField("Texto55", " "); // Segundo apellido
+                    pdfFormFields.SetField("Texto57", ArrayConyuge[6] + " " + ArrayConyuge[7]); // Nombres 
+                    pdfFormFields.SetField("Texto56", ArrayConyuge[8]); // Primer apellido
+                    pdfFormFields.SetField("Texto55", ArrayConyuge[9]); // Segundo apellido
 
                     pdfFormFields.SetField("Texto58", " "); // Razón social
                     pdfFormFields.SetField("Texto59", " "); // NIT
 
 
-                    switch ( ) // Recibe subsidio
+                    switch ("1") // Recibe subsidio
                     {
-                        case "SI": // Si
+                        case "1": // Si
                             pdfFormFields.SetField("Casilla de verificación94", "0");
                             break;
 
-                        case "NO": // No
+                        case "2": // No
                             pdfFormFields.SetField("Casilla de verificación95", "0");
                             break;
 
@@ -595,22 +676,22 @@ namespace FormularioExcel
                     pdfFormFields.SetField("Texto60", " "); // Caja por la cual recibe subsidio
 
 
-                    //8. INFORMACIÓN GRUPO FAMILIAR 
 
+                    //8. INFORMACIÓN GRUPO FAMILIAR 
 
                     // 1. Tipo 
                     pdfFormFields.SetField("Texto74", " ");
 
                     //No. Documento de identificación
-                    pdfFormFields.SetField("Texto65", " ");
+                    pdfFormFields.SetField("Texto65", ArrayBeneficiario1[4]);
 
                     //Nombres
-                    pdfFormFields.SetField("Texto34", " ");
+                    pdfFormFields.SetField("Texto34", ArrayBeneficiario1[6] + " " + ArrayBeneficiario1[7]);
 
                     //Apellidos
-                    pdfFormFields.SetField("Texto74", " ");
+                    pdfFormFields.SetField("Texto61", ArrayBeneficiario1[8]);
 
-                    switch ( ) //Parentesco
+                    switch (ArrayBeneficiario1[26]) //Parentesco
                     {
                         case "1": // Hijo 
                             pdfFormFields.SetField("Casilla de verificación96", "0");
@@ -642,23 +723,23 @@ namespace FormularioExcel
                     }
 
                     //Fecha de Nacimiento 
-                    pdfFormFields.SetField("Texto91", " "); // Año
-                    pdfFormFields.SetField("Texto93", " "); // Mes 
-                    pdfFormFields.SetField("Texto92", " "); // Día
+                    pdfFormFields.SetField("Texto91", ArrayBeneficiario1[10].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto93", ArrayBeneficiario1[10].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto92", ArrayBeneficiario1[10].Substring(3, 2)); // Día
 
                     // 2. Tipo 
                     pdfFormFields.SetField("Texto75", " ");
 
                     //No. Documento de identificación
-                    pdfFormFields.SetField("Texto63", " ");
+                    pdfFormFields.SetField("Texto63", ArrayBeneficiario2[4]);
 
                     //Nombres
-                    pdfFormFields.SetField("Texto64", " ");
+                    pdfFormFields.SetField("Texto64", ArrayBeneficiario2[6] + " " + ArrayBeneficiario2[7]);
 
                     //Apellidos
-                    pdfFormFields.SetField("Texto62", " ");
+                    pdfFormFields.SetField("Texto62", ArrayBeneficiario2[8]);
 
-                    switch ( ) //Parentesco
+                    switch (ArrayBeneficiario2[26]) //Parentesco
                     {
                         case "1": // Hijo 
                             pdfFormFields.SetField("Casilla de verificación105", "0");
@@ -690,23 +771,23 @@ namespace FormularioExcel
                     }
 
                     //Fecha de Nacimiento 
-                    pdfFormFields.SetField("Texto88", " "); // Año
-                    pdfFormFields.SetField("Texto90", " "); // Mes 
-                    pdfFormFields.SetField("Texto89", " "); // Día
+                    pdfFormFields.SetField("Texto88", ArrayBeneficiario2[10].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto90", ArrayBeneficiario2[10].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto89", ArrayBeneficiario2[10].Substring(3, 2)); // Día
 
                     // 3. Tipo 
                     pdfFormFields.SetField("Texto76", " ");
 
                     //No. Documento de identificación
-                    pdfFormFields.SetField("Texto37", " ");
+                    pdfFormFields.SetField("Texto37", ArrayBeneficiario3[4]);
 
                     //Nombres
-                    pdfFormFields.SetField("Texto66", " ");
+                    pdfFormFields.SetField("Texto66", ArrayBeneficiario3[6] + " " + ArrayBeneficiario3[7]);
 
                     //Apellidos
-                    pdfFormFields.SetField("Texto69", " ");
+                    pdfFormFields.SetField("Texto69", ArrayBeneficiario3[8]);
 
-                    switch ( ) //Parentesco
+                    switch (ArrayBeneficiario3[26]) //Parentesco
                     {
                         case "1": // Hijo 
                             pdfFormFields.SetField("Casilla de verificación110", "0");
@@ -738,124 +819,14 @@ namespace FormularioExcel
                     }
 
                     //Fecha de Nacimiento 
-                    pdfFormFields.SetField("Texto85", " "); // Año
-                    pdfFormFields.SetField("Texto87", " "); // Mes 
-                    pdfFormFields.SetField("Texto86", " "); // Día
-
-                    // 4. Tipo 
-                    pdfFormFields.SetField("Texto77", " ");
-
-                    //No. Documento de identificación
-                    pdfFormFields.SetField("Texto67", " ");
-
-                    //Nombres
-                    pdfFormFields.SetField("Texto70", " ");
-
-                    //Apellidos
-                    pdfFormFields.SetField("Texto68", " ");
-
-                    switch ( ) //Parentesco
-                    {
-                        case "1": // Hijo 
-                            pdfFormFields.SetField("Casilla de verificación115", "0");
-                            break;
-
-                        case "3": // padre 
-                            pdfFormFields.SetField("Casilla de verificación114", "0");
-                            break;
-
-                        case "4": // Hermano
-                            pdfFormFields.SetField("Casilla de verificación113", "0");
-                            break;
-
-                        case "2": // Hijastro 
-                            pdfFormFields.SetField("Casilla de verificación112", "0");
-                            break;
-
-                        case "5": // Custodia
-                            pdfFormFields.SetField("Casilla de verificación111", "0");
-                            break;
-
-                        case "NULL":
-
-                            break;
-
-                        default:
-                            MessageBox.Show("Error de parentesco");
-                            break;
-                    }
-
-                    //Fecha de Nacimiento 
-                    pdfFormFields.SetField("Texto82", " "); // Año
-                    pdfFormFields.SetField("Texto84", " "); // Mes 
-                    pdfFormFields.SetField("Texto83", " "); // Día
-
-                    // 5. Tipo 
-                    pdfFormFields.SetField("Texto78", " ");
-
-                    //No. Documento de identificación
-                    pdfFormFields.SetField("Texto71", " ");
-
-                    //Nombres
-                    pdfFormFields.SetField("Texto72", " ");
-
-                    //Apellidos
-                    pdfFormFields.SetField("Texto73", " ");
-
-                    switch ( ) //Parentesco
-                    {
-                        case "1": // Hijo 
-                            pdfFormFields.SetField("Casilla de verificación120", "0");
-                            break;
-
-                        case "3": // padre 
-                            pdfFormFields.SetField("Casilla de verificación119", "0");
-                            break;
-
-                        case "4": // Hermano
-                            pdfFormFields.SetField("Casilla de verificación118", "0");
-                            break;
-
-                        case "2": // Hijastro 
-                            pdfFormFields.SetField("Casilla de verificación117", "0");
-                            break;
-
-                        case "5": // Custodia
-                            pdfFormFields.SetField("Casilla de verificación116", "0");
-                            break;
-
-                        case "NULL":
-
-                            break;
-
-                        default:
-                            MessageBox.Show("Error de parentesco");
-                            break;
-                    }
-
-                    //Fecha de Nacimiento 
-                    pdfFormFields.SetField("Texto79", " "); // Año
-                    pdfFormFields.SetField("Texto80", " "); // Mes 
-                    pdfFormFields.SetField("Texto81", " "); // Día
-
+                    pdfFormFields.SetField("Texto85", ArrayBeneficiario3[10].Substring(6, 4)); // Año
+                    pdfFormFields.SetField("Texto87", ArrayBeneficiario3[10].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto86", ArrayBeneficiario3[10].Substring(3, 2)); // Día
 
 
                     //AUTORIZACIÓN PARA LA UTILIZACIÓN DE DATOS PERSONALES
 
                     pdfFormFields.SetField("Casilla de verificación121", "0"); // Año
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     pdfStamper.FormFlattening = true;
                     pdfStamper.Close();
@@ -872,6 +843,7 @@ namespace FormularioExcel
             {
                 MessageBox.Show("Seleccione toda la fila");
             }
+
         }
     }
 }
