@@ -73,7 +73,7 @@ namespace FormularioExcel
             DataDetalles.DataSource = dt;
         }
 
-        private void BtnExportar_Click(object sender, EventArgs e)
+        private void DataDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -215,7 +215,7 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación45", "0");
                             break;
 
-                        case "1": // Cedula de ciudadania (C.C.)
+                        case "C.C.":                         
                             pdfFormFields.SetField("Casilla de verificación46", "0");
                             break;
 
@@ -239,7 +239,7 @@ namespace FormularioExcel
                             pdfFormFields.SetField("Casilla de verificación51", "0");
                             break;
 
-                        case "9": // Permiso Turismo (P.T) 
+                        case "PT":           
                             pdfFormFields.SetField("Casilla de verificación52", "0");
                             break;
 
