@@ -17,11 +17,9 @@ namespace FormularioExcel
         DataTable dt = new DataTable();
         DataSet ds = new DataSet();
 
-
         public Form1()
         {
             InitializeComponent();
-
             dt.Columns.Add("TrabajadorId");
 
         }
@@ -42,7 +40,6 @@ namespace FormularioExcel
 
             LblFile.Text = OpenFileDialog.FileName;
         }
-
 
         DataView ImportarDatos(string nombrearchivo)
         {
@@ -68,32 +65,28 @@ namespace FormularioExcel
 
         private void TxtFiltrar_TextChanged(object sender, EventArgs e)
         {
-
-            dt.DefaultView.RowFilter = $"TrabajadorId LIKE '{TxtFiltrar.Text}%'";
             DataDetalles.DataSource = dt;
+            dt.DefaultView.RowFilter = $"TrabajadorId LIKE '{TxtFiltrar.Text}%'";
         }
-
 
 
         private void BtnExportar_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             try
             {
+                
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-
-
-                int trabajador = 0;
-                int conyuge = 0;
-                int Benefi = 0;
-                string[] DatosTrabajador = new string[34];
-                string[] DatosConyuge = new string[34];
-                string[] DatosBeneficiario = new string[34];
-                string[][] ArrayConyuge = new string[this.DataDetalles.Rows.Count][];
-                string[][] ArrayTrabajador = new string[this.DataDetalles.Rows.Count][];
-                string[][] ArrayBeneficiario = new string[this.DataDetalles.Rows.Count][];
-
-
+                {
+                    int trabajador = 0;
+                    int conyuge = 0;
+                    int Benefi = 0;
+                    string[] DatosTrabajador = new string[34];
+                    string[] DatosConyuge = new string[34];
+                    string[] DatosBeneficiario = new string[34];
+                    string[][] ArrayTrabajador = new string[this.DataDetalles.Rows.Count][];
+                    string[][] ArrayConyuge = new string[this.DataDetalles.Rows.Count][];
+                    string[][] ArrayBeneficiario = new string[this.DataDetalles.Rows.Count][];
 
                 foreach (DataGridViewRow Detalles in this.DataDetalles.Rows)
                 {
@@ -130,14 +123,14 @@ namespace FormularioExcel
                         Benefi++;
                     }
                 }
-
                 foreach (var Trabajador in ArrayTrabajador)
                 {
                     if (Trabajador == null)
                     {
                         break;
                     }
-                    string pdfTemplate = @"D:\Brayan\Documents\Programación\C#\source\FormularioAfiliacion\Formulario.pdf";
+                    string pdfTemplate = System.AppDomain.CurrentDomain.BaseDirectory + "Formulario.pdf";
+                    
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     AcroFields af = pdfReader.AcroFields;
                     List<string> campos = new List<string>();
@@ -148,11 +141,10 @@ namespace FormularioExcel
                         campos.Add(fieldName + " " + fieldValue);
                     }
                     File.WriteAllLines("campos.txt", campos);
-                    string newFile = @"C:\Users\Brayan\Downloads\" + Trabajador[10] + " " + Trabajador[12] + ".pdf";
+                    string newFile = @"C:\Users\ticdesarrollo01\Downloads\" + Trabajador[10] + " " + Trabajador[12] + ".pdf";
                     pdfReader = new PdfReader(pdfTemplate);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
                     AcroFields pdfFormFields = pdfStamper.AcroFields;
-
 
                     //1. TIPO DE NOVEDAD
 
@@ -171,7 +163,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error de tipo de novedad afiliación");
+                            
                             break;
                     }
 
@@ -213,12 +205,12 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error en el tipo de documento, entidad pagadora");
+                            
                             break;
                     }
 
                     pdfFormFields.SetField("Texto7", Trabajador[2] + "-" + Trabajador[3]); // No. de identidad pagadora
-                    pdfFormFields.SetField("Texto9", "Sin nombre"); // Nombre o Razón Social
+                    pdfFormFields.SetField("Texto9", " "); // Nombre o Razón Social
 
                     //Sector
                     switch ("")
@@ -236,7 +228,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error de sector, entidad pagadora");
+                            
                             break;
                     }
 
@@ -288,7 +280,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error en el tipo de documento, Trabajador");
+                            
                             break;
                     }
 
@@ -318,7 +310,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error estado civil");
+                            
                             break;
                     }
 
@@ -343,7 +335,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error de género");
+                            
                             break;
                     }
 
@@ -379,7 +371,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error, nivel ocupacional");
+                            
                             break;
                     }
 
@@ -411,7 +403,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error, nivel ocupacional");
+                            
                             break;
                     }
 
@@ -435,7 +427,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error, Trabajador");
+                            
                             break;
                     }
 
@@ -462,7 +454,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error de municipio");
+                            
                             break;
                     }
 
@@ -474,7 +466,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error de departamento");
+                            
                             break;
                     }
 
@@ -491,7 +483,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error, zona vivienda");
+                            
                             break;
                     }
 
@@ -519,7 +511,7 @@ namespace FormularioExcel
                             break;
 
                         default:
-                            MessageBox.Show("Error, zona trabajo");
+                            
                             break;
                     }
 
@@ -578,7 +570,7 @@ namespace FormularioExcel
                                     break;
 
                                 default:
-                                    MessageBox.Show("Error en el tipo de documento, Conyuge");
+                                    
                                     break;
                             }
 
@@ -605,7 +597,7 @@ namespace FormularioExcel
                                     break;
 
                                 default:
-                                    MessageBox.Show("Error de género, Conyuge");
+                                    
                                     break;
                             }
 
@@ -626,7 +618,7 @@ namespace FormularioExcel
                                     break;
 
                                 default:
-                                    MessageBox.Show("Error de trabaja, Conyuge");
+                                    
                                     break;
                             }
 
@@ -661,7 +653,7 @@ namespace FormularioExcel
                                     break;
 
                                 default:
-                                    MessageBox.Show("Error de Recibe subsidio");
+                                    
                                     break;
                             }
 
@@ -671,6 +663,7 @@ namespace FormularioExcel
 
                     }
                     //8. INFORMACIÓN GRUPO FAMILIAR 
+                    
                     int NumeroBeneficiario = 1;
                     foreach (var Beneficiario in ArrayBeneficiario)
                     {
@@ -722,7 +715,7 @@ namespace FormularioExcel
                                         break;
 
                                     default:
-                                        MessageBox.Show("Error de parentesco");
+                                        
                                         break;
                                 }
 
@@ -777,7 +770,7 @@ namespace FormularioExcel
                                         break;
 
                                     default:
-                                        MessageBox.Show("Error de parentesco");
+                                        
                                         break;
                                 }
 
@@ -831,7 +824,7 @@ namespace FormularioExcel
                                         break;
 
                                     default:
-                                        MessageBox.Show("Error de parentesco");
+                                       
                                         break;
                                 }
 
@@ -885,7 +878,7 @@ namespace FormularioExcel
                                         break;
 
                                     default:
-                                        MessageBox.Show("Error de parentesco");
+                                        
                                         break;
                                 }
 
@@ -901,6 +894,37 @@ namespace FormularioExcel
 
                                 // 5. Tipo 
                                 pdfFormFields.SetField("Texto78", " ");
+
+                                switch (Beneficiario[30]) //Parentesco
+                                {
+                                    case "1": // Hijo 
+                                        pdfFormFields.SetField("Casilla de verificación115", "0");
+                                        break;
+
+                                    case "3": // padre 
+                                        pdfFormFields.SetField("Casilla de verificación114", "0");
+                                        break;
+
+                                    case "4": // Hermano
+                                        pdfFormFields.SetField("Casilla de verificación113", "0");
+                                        break;
+
+                                    case "2": // Hijastro 
+                                        pdfFormFields.SetField("Casilla de verificación112", "0");
+                                        break;
+
+                                    case "5": // Custodia
+                                        pdfFormFields.SetField("Casilla de verificación111", "0");
+                                        break;
+
+                                    case "NULL":
+
+                                        break;
+
+                                    default:
+
+                                        break;
+                                }
 
                                 //No. Documento de identificación
                                 pdfFormFields.SetField("Texto71", Beneficiario[8]);
@@ -938,7 +962,7 @@ namespace FormularioExcel
                                         break;
 
                                     default:
-                                        MessageBox.Show("Error de parentesco");
+                                        
                                         break;
                                 }
 
@@ -949,15 +973,17 @@ namespace FormularioExcel
 
 
                                 NumeroBeneficiario++;
-                            }
+                            }     
                         }
                     }
 
+                    //AUTORIZACIÓN PARA LA UTILIZACIÓN DE DATOS PERSONALES
+
+                    pdfFormFields.SetField("Casilla de verificación121", "0"); // Año
+
                     pdfStamper.FormFlattening = true;
                     pdfStamper.Close();
-
                 }
-
             }
             else
             {
@@ -967,7 +993,7 @@ namespace FormularioExcel
             }
             catch (Exception)
             {
-                MessageBox.Show("Seleccione toda la fila");
+                MessageBox.Show("Seleccione toda la fila o verifique el archivo");
             }
 
         }
