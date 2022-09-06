@@ -74,8 +74,7 @@ namespace FormularioExcel
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             try
-            {
-                
+            {        
                 if (MessageBox.Show("Exportar a PDF?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int trabajador = 0;
@@ -470,7 +469,6 @@ namespace FormularioExcel
                             break;
                     }
 
-
                     //Zona vivienda
                     switch ("")
                     {
@@ -536,9 +534,7 @@ namespace FormularioExcel
                         }
                         if (Conyuge[6] == Trabajador[6])
                         {
-
                             //7. Información del cónyuge o compañer@
-
                             switch (Conyuge[9])
                             {
                                 case "1": // Cedula de ciudadania (C.C.)
@@ -677,10 +673,47 @@ namespace FormularioExcel
                             {
 
                                 // 1. Tipo 
-                                pdfFormFields.SetField("Texto74", " ");
+                                switch (Beneficiario[9])
+                                {
+                                    case "1": //Cédula de ciudadania
+                                        pdfFormFields.SetField("Texto74", "CC");
+                                        break;
 
-                                //No. Documento de identificación
-                                pdfFormFields.SetField("Texto65", Beneficiario[8]);
+                                    case "2": //Carnet
+                                        pdfFormFields.SetField("Texto74", "CD");
+                                        break;
+
+                                    case "3": //Cedula extranjera
+                                        pdfFormFields.SetField("Texto74", "CE");
+                                        break;
+
+                                    case "4": //Pasaporte 
+                                        pdfFormFields.SetField("Texto74", "PA");
+                                        break;
+
+                                    case "5": //Tarjeta de identidad  
+                                        pdfFormFields.SetField("Texto74", "TI");
+                                        break;
+
+                                    case "6": //Permiso especial
+                                        pdfFormFields.SetField("Texto74", "PE");
+                                        break;
+
+                                    case "8": //Registro
+                                        pdfFormFields.SetField("Texto74", "RC");
+                                        break;
+
+                                    case "9": //Permiso de turismo
+                                        pdfFormFields.SetField("Texto74", "PT");
+                                        break;
+
+                                    default:
+
+                                        break;
+                                }
+
+                                    //No. Documento de identificación
+                                    pdfFormFields.SetField("Texto65", Beneficiario[8]);
 
                                 //Nombres
                                 pdfFormFields.SetField("Texto34", Beneficiario[10] + " " + Beneficiario[11]);
@@ -730,12 +763,48 @@ namespace FormularioExcel
                             }
                             else if (NumeroBeneficiario == 2)
                             {
-
                                 // 2. Tipo 
-                                pdfFormFields.SetField("Texto75", " ");
+                                switch (Beneficiario[9])
+                                {
+                                    case "1": //Cédula de ciudadania
+                                        pdfFormFields.SetField("Texto75", "CC");
+                                        break;
 
-                                //No. Documento de identificación
-                                pdfFormFields.SetField("Texto63", Beneficiario[8]);
+                                    case "2": //Carnet
+                                        pdfFormFields.SetField("Texto75", "CD");
+                                        break;
+
+                                    case "3": //Cedula extranjera
+                                        pdfFormFields.SetField("Texto75", "CE");
+                                        break;
+
+                                    case "4": //Pasaporte 
+                                        pdfFormFields.SetField("Texto75", "PA");
+                                        break;
+
+                                    case "5": //Tarjeta de identidad  
+                                        pdfFormFields.SetField("Texto75", "TI");
+                                        break;
+
+                                    case "6": //Permiso especial
+                                        pdfFormFields.SetField("Texto75", "PE");
+                                        break;
+
+                                    case "8": //Registro
+                                        pdfFormFields.SetField("Texto75", "RC");
+                                        break;
+
+                                    case "9": //Permiso de turismo
+                                        pdfFormFields.SetField("Texto75", "PT");
+                                        break;
+
+                                    default:
+
+                                        break;
+                                }
+
+                                    //No. Documento de identificación
+                                    pdfFormFields.SetField("Texto63", Beneficiario[8]);
 
                                 //Nombres
                                 pdfFormFields.SetField("Texto64", Beneficiario[10] + " " + Beneficiario[11]);
@@ -784,12 +853,48 @@ namespace FormularioExcel
                             }
                             else if (NumeroBeneficiario == 3)
                             {
-
                                 // 3. Tipo 
-                                pdfFormFields.SetField("Texto76", " ");
+                                switch (Beneficiario[9])
+                                {
+                                    case "1": //Cédula de ciudadania
+                                        pdfFormFields.SetField("Texto76", "CC");
+                                        break;
 
-                                //No. Documento de identificación
-                                pdfFormFields.SetField("Texto37", Beneficiario[8]);
+                                    case "2": //Carnet
+                                        pdfFormFields.SetField("Texto76", "CD");
+                                        break;
+
+                                    case "3": //Cedula extranjera
+                                        pdfFormFields.SetField("Texto76", "CE");
+                                        break;
+
+                                    case "4": //Pasaporte 
+                                        pdfFormFields.SetField("Texto76", "PA");
+                                        break;
+
+                                    case "5": //Tarjeta de identidad  
+                                        pdfFormFields.SetField("Texto76", "TI");
+                                        break;
+
+                                    case "6": //Permiso especial
+                                        pdfFormFields.SetField("Texto76", "PE");
+                                        break;
+
+                                    case "8": //Registro
+                                        pdfFormFields.SetField("Texto76", "RC");
+                                        break;
+
+                                    case "9": //Permiso de turismo
+                                        pdfFormFields.SetField("Texto76", "PT");
+                                        break;
+
+                                    default:
+
+                                        break;
+                                }
+
+                                    //No. Documento de identificación
+                                    pdfFormFields.SetField("Texto37", Beneficiario[8]);
 
                                 //Nombres
                                 pdfFormFields.SetField("Texto66", Beneficiario[10] + " " + Beneficiario[11]);
@@ -840,10 +945,47 @@ namespace FormularioExcel
                             else if (NumeroBeneficiario == 4)
                             {
                                 // 4. Tipo 
-                                pdfFormFields.SetField("Texto77", " ");
+                                switch (Beneficiario[9])
+                                {
+                                    case "1": //Cédula de ciudadania
+                                        pdfFormFields.SetField("Texto77", "CC");
+                                        break;                        
+                                                                      
+                                    case "2": //Carnet                
+                                        pdfFormFields.SetField("Texto77", "CD");
+                                        break;                        
+                                                                      
+                                    case "3": //Cedula extranjera     
+                                        pdfFormFields.SetField("Texto77", "CE");
+                                        break;                        
+                                                                      
+                                    case "4": //Pasaporte             
+                                        pdfFormFields.SetField("Texto77", "PA");
+                                        break;                        
+                                                                      
+                                    case "5": //Tarjeta de identidad  
+                                        pdfFormFields.SetField("Texto77", "TI");
+                                        break;
 
-                                //No. Documento de identificación
-                                pdfFormFields.SetField("Texto67", Beneficiario[8]);
+                                    case "6": //Permiso especial
+                                        pdfFormFields.SetField("Texto77", "PE");
+                                        break;
+
+                                    case "8": //Registro
+                                        pdfFormFields.SetField("Texto77", "RC");
+                                        break;
+
+                                    case "9": //Permiso de turismo
+                                        pdfFormFields.SetField("Texto77", "PT");
+                                        break;
+
+                                    default:
+
+                                        break;
+                                }
+
+                                    //No. Documento de identificación
+                                    pdfFormFields.SetField("Texto67", Beneficiario[8]);
 
                                 //Nombres
                                 pdfFormFields.SetField("Texto70", Beneficiario[10] + " " + Beneficiario[11]);
@@ -891,39 +1033,44 @@ namespace FormularioExcel
                             }
                             else if (NumeroBeneficiario == 5)
                             {
-
                                 // 5. Tipo 
-                                pdfFormFields.SetField("Texto78", " ");
-
-                                switch (Beneficiario[30]) //Parentesco
+                                switch (Beneficiario[9]) 
                                 {
-                                    case "1": // Hijo 
-                                        pdfFormFields.SetField("Casilla de verificación115", "0");
+                                    case "1": //Cédula de ciudadania
+                                        pdfFormFields.SetField("Texto78", "CC");
                                         break;
 
-                                    case "3": // padre 
-                                        pdfFormFields.SetField("Casilla de verificación114", "0");
+                                    case "2": //Carnet
+                                        pdfFormFields.SetField("Texto78", "CD");
                                         break;
 
-                                    case "4": // Hermano
-                                        pdfFormFields.SetField("Casilla de verificación113", "0");
+                                    case "3": //Cedula extranjera
+                                        pdfFormFields.SetField("Texto78", "CE");
                                         break;
 
-                                    case "2": // Hijastro 
-                                        pdfFormFields.SetField("Casilla de verificación112", "0");
+                                    case "4": //Pasaporte 
+                                        pdfFormFields.SetField("Texto78", "PA");
                                         break;
 
-                                    case "5": // Custodia
-                                        pdfFormFields.SetField("Casilla de verificación111", "0");
+                                    case "5": //Tarjeta de identidad  
+                                        pdfFormFields.SetField("Texto78", "TI");
                                         break;
 
-                                    case "NULL":
+                                    case "6": //Permiso especial
+                                        pdfFormFields.SetField("Texto78", "PE");
+                                        break;
 
+                                    case "8": //Registro
+                                        pdfFormFields.SetField("Texto78", "RC");
+                                        break;
+
+                                    case "9": //Permiso de turismo
+                                        pdfFormFields.SetField("Texto78", "PT");
                                         break;
 
                                     default:
 
-                                        break;
+                                    break;
                                 }
 
                                 //No. Documento de identificación
