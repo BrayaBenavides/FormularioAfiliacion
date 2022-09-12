@@ -32,9 +32,11 @@ namespace FormularioExcel
             this.BtnImportar = new System.Windows.Forms.Button();
             this.LblFile = new System.Windows.Forms.Label();
             this.DataDetalles = new System.Windows.Forms.DataGridView();
-            this.TxtFiltrar = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.BtnExportar = new System.Windows.Forms.Button();
+            this.LblPDF = new System.Windows.Forms.Label();
+            this.LblError = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.Lblguardar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataDetalles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,34 +55,17 @@ namespace FormularioExcel
             this.LblFile.AutoSize = true;
             this.LblFile.Location = new System.Drawing.Point(134, 52);
             this.LblFile.Name = "LblFile";
-            this.LblFile.Size = new System.Drawing.Size(35, 13);
+            this.LblFile.Size = new System.Drawing.Size(33, 13);
             this.LblFile.TabIndex = 1;
-            this.LblFile.Text = "label1";
+            this.LblFile.Text = "Ruta:";
             // 
             // DataDetalles
             // 
             this.DataDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataDetalles.Location = new System.Drawing.Point(53, 98);
+            this.DataDetalles.Location = new System.Drawing.Point(53, 169);
             this.DataDetalles.Name = "DataDetalles";
-            this.DataDetalles.Size = new System.Drawing.Size(684, 264);
+            this.DataDetalles.Size = new System.Drawing.Size(684, 202);
             this.DataDetalles.TabIndex = 2;
-            // 
-            // TxtFiltrar
-            // 
-            this.TxtFiltrar.Location = new System.Drawing.Point(637, 50);
-            this.TxtFiltrar.Name = "TxtFiltrar";
-            this.TxtFiltrar.Size = new System.Drawing.Size(100, 20);
-            this.TxtFiltrar.TabIndex = 3;
-            this.TxtFiltrar.TextChanged += new System.EventHandler(this.TxtFiltrar_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(599, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Filtrar";
             // 
             // BtnExportar
             // 
@@ -92,14 +77,53 @@ namespace FormularioExcel
             this.BtnExportar.UseVisualStyleBackColor = true;
             this.BtnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
             // 
+            // LblPDF
+            // 
+            this.LblPDF.AutoSize = true;
+            this.LblPDF.Location = new System.Drawing.Point(344, 105);
+            this.LblPDF.Name = "LblPDF";
+            this.LblPDF.Size = new System.Drawing.Size(28, 13);
+            this.LblPDF.TabIndex = 8;
+            this.LblPDF.Text = "PDF";
+            this.LblPDF.Visible = false;
+            // 
+            // LblError
+            // 
+            this.LblError.AutoSize = true;
+            this.LblError.Location = new System.Drawing.Point(60, 153);
+            this.LblError.Name = "LblError";
+            this.LblError.Size = new System.Drawing.Size(40, 13);
+            this.LblError.TabIndex = 9;
+            this.LblError.Text = "Errores";
+            this.LblError.Visible = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(53, 377);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(188, 13);
+            this.progressBar.TabIndex = 10;
+            this.progressBar.Visible = false;
+            // 
+            // Lblguardar
+            // 
+            this.Lblguardar.AutoSize = true;
+            this.Lblguardar.Location = new System.Drawing.Point(527, 401);
+            this.Lblguardar.Name = "Lblguardar";
+            this.Lblguardar.Size = new System.Drawing.Size(35, 13);
+            this.Lblguardar.TabIndex = 11;
+            this.Lblguardar.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Lblguardar);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.LblError);
+            this.Controls.Add(this.LblPDF);
             this.Controls.Add(this.BtnExportar);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxtFiltrar);
             this.Controls.Add(this.DataDetalles);
             this.Controls.Add(this.LblFile);
             this.Controls.Add(this.BtnImportar);
@@ -116,9 +140,11 @@ namespace FormularioExcel
         private System.Windows.Forms.Button BtnImportar;
         private System.Windows.Forms.Label LblFile;
         private System.Windows.Forms.DataGridView DataDetalles;
-        private System.Windows.Forms.TextBox TxtFiltrar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnExportar;
+        private System.Windows.Forms.Label LblPDF;
+        private System.Windows.Forms.Label LblError;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label Lblguardar;
     }
 }
 

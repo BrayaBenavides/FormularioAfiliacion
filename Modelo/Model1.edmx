@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ColsubsidioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Beneficiario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" />
+          <Property Name="TipoBeneficiario" Type="int" />
+          <Property Name="BeneficiarioTipoId" Type="int" />
+          <Property Name="BeneficiarioId" Type="int" />
+          <Property Name="Nombre1" Type="varchar" MaxLength="50" />
+          <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+          <Property Name="IdParentesco" Type="int" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="IdGenero" Type="int" />
+        </EntityType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="Ciudad_Id" />
+          </Key>
+          <Property Name="Ciudad_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Departamento" Type="varchar" MaxLength="50" />
+          <Property Name="EpsSucursalId" Type="varchar" MaxLength="50" />
+          <Property Name="CodDepartamento" Type="int" />
+          <Property Name="CodMunicipio" Type="int" />
+        </EntityType>
+        <EntityType Name="Conyuge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+          <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+          <Property Name="BeneficiarioTipoId" Type="int" Nullable="false" />
+          <Property Name="BeneficiarioId" Type="int" Nullable="false" />
+          <Property Name="Nombre1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="IdGenero" Type="int" Nullable="false" />
+          <Property Name="FechaIngresoEmpresa" Type="date" />
+          <Property Name="SalarioBasico" Type="int" />
+          <Property Name="TrabajaConyugue" Type="varchar" MaxLength="50" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Nit" Type="int" />
+          <Property Name="RecibeSub" Type="varchar" MaxLength="50" />
+          <Property Name="CajaSub" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empleador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+          <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+          <Property Name="Tipo_Novedad" Type="int" />
+          <Property Name="FechaRadicacion" Type="date" Nullable="false" />
+          <Property Name="TipoIdentificacionEmpresa" Type="int" Nullable="false" />
+          <Property Name="Nit" Type="int" />
+          <Property Name="DigitoVerificacion" Type="int" />
+          <Property Name="Nombre_RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Sector" Type="int" />
+          <Property Name="Sucursal" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" />
+          <Property Name="Departamento" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nit" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Razon" Type="varchar" MaxLength="50" />
+          <Property Name="DV" Type="int" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="TrabajadorId" />
+          </Key>
+          <Property Name="TrabajadorId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+          <Property Name="trabajadorTipoId" Type="int" Nullable="false" />
+          <Property Name="Nombre1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="IdGenero" Type="int" Nullable="false" />
+          <Property Name="IdNacionalidad" Type="int" />
+          <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
+          <Property Name="IdNivelOcupacion" Type="int" Nullable="false" />
+          <Property Name="IdNivelEducativo" Type="int" />
+          <Property Name="FechaIngresoEmpresa" Type="date" Nullable="false" />
+          <Property Name="HorasMes" Type="int" Nullable="false" />
+          <Property Name="Trabajador" Type="int" />
+          <Property Name="SalarioBasico" Type="int" Nullable="false" />
+          <Property Name="Celular" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EPS" Type="varchar" MaxLength="50" />
+          <Property Name="AFP" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion_V" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ciudad_V" Type="int" />
+          <Property Name="Dpto_V" Type="int" />
+          <Property Name="Zona_V" Type="int" Nullable="false" />
+          <Property Name="Telefono_V" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion_T" Type="varchar" MaxLength="50" />
+          <Property Name="Ciudad_T" Type="int" />
+          <Property Name="Dpto_T" Type="int" />
+          <Property Name="Zona_T" Type="int" />
+          <Property Name="Telefono_T" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Beneficia__Traba__5535A963">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+          <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Beneficiario">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Conyuge__Trabaja__5441852A">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Conyuge" Type="Self.Conyuge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Conyuge">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleador__Traba__534D60F1">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Empleador" Type="Self.Empleador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Empleador">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ColsubsidioModelStoreContainer">
+          <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Conyuge" EntityType="Self.Conyuge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleador" EntityType="Self.Empleador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Beneficia__Traba__5535A963" Association="Self.FK__Beneficia__Traba__5535A963">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Beneficiario" EntitySet="Beneficiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Conyuge__Trabaja__5441852A" Association="Self.FK__Conyuge__Trabaja__5441852A">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Conyuge" EntitySet="Conyuge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleador__Traba__534D60F1" Association="Self.FK__Empleador__Traba__534D60F1">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Empleador" EntitySet="Empleador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ColsubsidioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Beneficiario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrabajadorId" Type="Int32" />
+          <Property Name="TipoBeneficiario" Type="Int32" />
+          <Property Name="BeneficiarioTipoId" Type="Int32" />
+          <Property Name="BeneficiarioId" Type="Int32" />
+          <Property Name="Nombre1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdParentesco" Type="Int32" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="IdGenero" Type="Int32" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK__Beneficia__Traba__5535A963" FromRole="Beneficiario" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="Ciudad_Id" />
+          </Key>
+          <Property Name="Ciudad_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EpsSucursalId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodDepartamento" Type="Int32" />
+          <Property Name="CodMunicipio" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Conyuge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <Property Name="TipoBeneficiario" Type="Int32" Nullable="false" />
+          <Property Name="BeneficiarioTipoId" Type="Int32" Nullable="false" />
+          <Property Name="BeneficiarioId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdGenero" Type="Int32" Nullable="false" />
+          <Property Name="FechaIngresoEmpresa" Type="DateTime" Precision="0" />
+          <Property Name="SalarioBasico" Type="Int32" />
+          <Property Name="TrabajaConyugue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nit" Type="Int32" />
+          <Property Name="RecibeSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CajaSub" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK__Conyuge__Trabaja__5441852A" FromRole="Conyuge" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Empleador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <Property Name="TipoBeneficiario" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Novedad" Type="Int32" />
+          <Property Name="FechaRadicacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TipoIdentificacionEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="Nit" Type="Int32" />
+          <Property Name="DigitoVerificacion" Type="Int32" />
+          <Property Name="Nombre_RazonSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sector" Type="Int32" />
+          <Property Name="Sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK__Empleador__Traba__534D60F1" FromRole="Empleador" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nit" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" />
+          <Property Name="Razon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DV" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="TrabajadorId" />
+          </Key>
+          <Property Name="TrabajadorId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoBeneficiario" Type="Int32" Nullable="false" />
+          <Property Name="trabajadorTipoId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdGenero" Type="Int32" Nullable="false" />
+          <Property Name="IdNacionalidad" Type="Int32" />
+          <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" />
+          <Property Name="IdNivelOcupacion" Type="Int32" Nullable="false" />
+          <Property Name="IdNivelEducativo" Type="Int32" />
+          <Property Name="FechaIngresoEmpresa" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HorasMes" Type="Int32" Nullable="false" />
+          <Property Name="Trabajador1" Type="Int32" />
+          <Property Name="SalarioBasico" Type="Int32" Nullable="false" />
+          <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EPS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AFP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion_V" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ciudad_V" Type="Int32" />
+          <Property Name="Dpto_V" Type="Int32" />
+          <Property Name="Zona_V" Type="Int32" Nullable="false" />
+          <Property Name="Telefono_V" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion_T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad_T" Type="Int32" />
+          <Property Name="Dpto_T" Type="Int32" />
+          <Property Name="Zona_T" Type="Int32" />
+          <Property Name="Telefono_T" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Beneficiario" Relationship="Self.FK__Beneficia__Traba__5535A963" FromRole="Trabajador" ToRole="Beneficiario" />
+          <NavigationProperty Name="Conyuge" Relationship="Self.FK__Conyuge__Trabaja__5441852A" FromRole="Trabajador" ToRole="Conyuge" />
+          <NavigationProperty Name="Empleador" Relationship="Self.FK__Empleador__Traba__534D60F1" FromRole="Trabajador" ToRole="Empleador" />
+        </EntityType>
+        <Association Name="FK__Beneficia__Traba__5535A963">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+          <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Beneficiario">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Conyuge__Trabaja__5441852A">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Conyuge" Type="Self.Conyuge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Conyuge">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleador__Traba__534D60F1">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Empleador" Type="Self.Empleador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="TrabajadorId" />
+            </Principal>
+            <Dependent Role="Empleador">
+              <PropertyRef Name="TrabajadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ColsubsidioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" />
+          <EntitySet Name="Conyuge" EntityType="Self.Conyuge" />
+          <EntitySet Name="Empleador" EntityType="Self.Empleador" />
+          <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" />
+          <AssociationSet Name="FK__Beneficia__Traba__5535A963" Association="Self.FK__Beneficia__Traba__5535A963">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Beneficiario" EntitySet="Beneficiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Conyuge__Trabaja__5441852A" Association="Self.FK__Conyuge__Trabaja__5441852A">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Conyuge" EntitySet="Conyuge" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleador__Traba__534D60F1" Association="Self.FK__Empleador__Traba__534D60F1">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Empleador" EntitySet="Empleador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ColsubsidioModelStoreContainer" CdmEntityContainer="ColsubsidioEntities">
+          <EntitySetMapping Name="Beneficiario">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Beneficiario">
+              <MappingFragment StoreEntitySet="Beneficiario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+                <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+                <ScalarProperty Name="BeneficiarioTipoId" ColumnName="BeneficiarioTipoId" />
+                <ScalarProperty Name="BeneficiarioId" ColumnName="BeneficiarioId" />
+                <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+                <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="IdParentesco" ColumnName="IdParentesco" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Ciudades">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="Ciudad_Id" ColumnName="Ciudad_Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="EpsSucursalId" ColumnName="EpsSucursalId" />
+                <ScalarProperty Name="CodDepartamento" ColumnName="CodDepartamento" />
+                <ScalarProperty Name="CodMunicipio" ColumnName="CodMunicipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conyuge">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Conyuge">
+              <MappingFragment StoreEntitySet="Conyuge">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+                <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+                <ScalarProperty Name="BeneficiarioTipoId" ColumnName="BeneficiarioTipoId" />
+                <ScalarProperty Name="BeneficiarioId" ColumnName="BeneficiarioId" />
+                <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+                <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="FechaIngresoEmpresa" ColumnName="FechaIngresoEmpresa" />
+                <ScalarProperty Name="SalarioBasico" ColumnName="SalarioBasico" />
+                <ScalarProperty Name="TrabajaConyugue" ColumnName="TrabajaConyugue" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Nit" ColumnName="Nit" />
+                <ScalarProperty Name="RecibeSub" ColumnName="RecibeSub" />
+                <ScalarProperty Name="CajaSub" ColumnName="CajaSub" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleador">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Empleador">
+              <MappingFragment StoreEntitySet="Empleador">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+                <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+                <ScalarProperty Name="Tipo_Novedad" ColumnName="Tipo_Novedad" />
+                <ScalarProperty Name="FechaRadicacion" ColumnName="FechaRadicacion" />
+                <ScalarProperty Name="TipoIdentificacionEmpresa" ColumnName="TipoIdentificacionEmpresa" />
+                <ScalarProperty Name="Nit" ColumnName="Nit" />
+                <ScalarProperty Name="DigitoVerificacion" ColumnName="DigitoVerificacion" />
+                <ScalarProperty Name="Nombre_RazonSocial" ColumnName="Nombre_RazonSocial" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Empresas">
+              <MappingFragment StoreEntitySet="Empresas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nit" ColumnName="Nit" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Razon" ColumnName="Razon" />
+                <ScalarProperty Name="DV" ColumnName="DV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajador">
+            <EntityTypeMapping TypeName="ColsubsidioModel.Trabajador">
+              <MappingFragment StoreEntitySet="Trabajador">
+                <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+                <ScalarProperty Name="trabajadorTipoId" ColumnName="trabajadorTipoId" />
+                <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+                <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="IdNivelOcupacion" ColumnName="IdNivelOcupacion" />
+                <ScalarProperty Name="IdNivelEducativo" ColumnName="IdNivelEducativo" />
+                <ScalarProperty Name="FechaIngresoEmpresa" ColumnName="FechaIngresoEmpresa" />
+                <ScalarProperty Name="HorasMes" ColumnName="HorasMes" />
+                <ScalarProperty Name="Trabajador1" ColumnName="Trabajador" />
+                <ScalarProperty Name="SalarioBasico" ColumnName="SalarioBasico" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="EPS" ColumnName="EPS" />
+                <ScalarProperty Name="AFP" ColumnName="AFP" />
+                <ScalarProperty Name="Direccion_V" ColumnName="Direccion_V" />
+                <ScalarProperty Name="Ciudad_V" ColumnName="Ciudad_V" />
+                <ScalarProperty Name="Dpto_V" ColumnName="Dpto_V" />
+                <ScalarProperty Name="Zona_V" ColumnName="Zona_V" />
+                <ScalarProperty Name="Telefono_V" ColumnName="Telefono_V" />
+                <ScalarProperty Name="Direccion_T" ColumnName="Direccion_T" />
+                <ScalarProperty Name="Ciudad_T" ColumnName="Ciudad_T" />
+                <ScalarProperty Name="Dpto_T" ColumnName="Dpto_T" />
+                <ScalarProperty Name="Zona_T" ColumnName="Zona_T" />
+                <ScalarProperty Name="Telefono_T" ColumnName="Telefono_T" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

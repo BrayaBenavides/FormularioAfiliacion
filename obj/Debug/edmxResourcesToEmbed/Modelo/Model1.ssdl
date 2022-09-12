@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ColsubsidioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Beneficiario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrabajadorId" Type="int" />
+    <Property Name="TipoBeneficiario" Type="int" />
+    <Property Name="BeneficiarioTipoId" Type="int" />
+    <Property Name="BeneficiarioId" Type="int" />
+    <Property Name="Nombre1" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+    <Property Name="IdParentesco" Type="int" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="IdGenero" Type="int" />
+  </EntityType>
+  <EntityType Name="Ciudades">
+    <Key>
+      <PropertyRef Name="Ciudad_Id" />
+    </Key>
+    <Property Name="Ciudad_Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Departamento" Type="varchar" MaxLength="50" />
+    <Property Name="EpsSucursalId" Type="varchar" MaxLength="50" />
+    <Property Name="CodDepartamento" Type="int" />
+    <Property Name="CodMunicipio" Type="int" />
+  </EntityType>
+  <EntityType Name="Conyuge">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrabajadorId" Type="int" Nullable="false" />
+    <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+    <Property Name="BeneficiarioTipoId" Type="int" Nullable="false" />
+    <Property Name="BeneficiarioId" Type="int" Nullable="false" />
+    <Property Name="Nombre1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="IdGenero" Type="int" Nullable="false" />
+    <Property Name="FechaIngresoEmpresa" Type="date" />
+    <Property Name="SalarioBasico" Type="int" />
+    <Property Name="TrabajaConyugue" Type="varchar" MaxLength="50" />
+    <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+    <Property Name="Nit" Type="int" />
+    <Property Name="RecibeSub" Type="varchar" MaxLength="50" />
+    <Property Name="CajaSub" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empleador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrabajadorId" Type="int" Nullable="false" />
+    <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+    <Property Name="Tipo_Novedad" Type="int" />
+    <Property Name="FechaRadicacion" Type="date" Nullable="false" />
+    <Property Name="TipoIdentificacionEmpresa" Type="int" Nullable="false" />
+    <Property Name="Nit" Type="int" />
+    <Property Name="DigitoVerificacion" Type="int" />
+    <Property Name="Nombre_RazonSocial" Type="varchar" MaxLength="50" />
+    <Property Name="Sector" Type="int" />
+    <Property Name="Sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="50" />
+    <Property Name="Departamento" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nit" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Razon" Type="varchar" MaxLength="50" />
+    <Property Name="DV" Type="int" />
+  </EntityType>
+  <EntityType Name="Trabajador">
+    <Key>
+      <PropertyRef Name="TrabajadorId" />
+    </Key>
+    <Property Name="TrabajadorId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoBeneficiario" Type="int" Nullable="false" />
+    <Property Name="trabajadorTipoId" Type="int" Nullable="false" />
+    <Property Name="Nombre1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre2" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido2" Type="varchar" MaxLength="50" />
+    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="IdGenero" Type="int" Nullable="false" />
+    <Property Name="IdNacionalidad" Type="int" />
+    <Property Name="IdEstadoCivil" Type="int" Nullable="false" />
+    <Property Name="IdNivelOcupacion" Type="int" Nullable="false" />
+    <Property Name="IdNivelEducativo" Type="int" />
+    <Property Name="FechaIngresoEmpresa" Type="date" Nullable="false" />
+    <Property Name="HorasMes" Type="int" Nullable="false" />
+    <Property Name="Trabajador" Type="int" />
+    <Property Name="SalarioBasico" Type="int" Nullable="false" />
+    <Property Name="Celular" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EPS" Type="varchar" MaxLength="50" />
+    <Property Name="AFP" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion_V" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ciudad_V" Type="int" />
+    <Property Name="Dpto_V" Type="int" />
+    <Property Name="Zona_V" Type="int" Nullable="false" />
+    <Property Name="Telefono_V" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion_T" Type="varchar" MaxLength="50" />
+    <Property Name="Ciudad_T" Type="int" />
+    <Property Name="Dpto_T" Type="int" />
+    <Property Name="Zona_T" Type="int" />
+    <Property Name="Telefono_T" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Beneficia__Traba__5535A963">
+    <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajador">
+        <PropertyRef Name="TrabajadorId" />
+      </Principal>
+      <Dependent Role="Beneficiario">
+        <PropertyRef Name="TrabajadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Conyuge__Trabaja__5441852A">
+    <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+    <End Role="Conyuge" Type="Self.Conyuge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajador">
+        <PropertyRef Name="TrabajadorId" />
+      </Principal>
+      <Dependent Role="Conyuge">
+        <PropertyRef Name="TrabajadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleador__Traba__534D60F1">
+    <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+    <End Role="Empleador" Type="Self.Empleador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajador">
+        <PropertyRef Name="TrabajadorId" />
+      </Principal>
+      <Dependent Role="Empleador">
+        <PropertyRef Name="TrabajadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ColsubsidioModelStoreContainer">
+    <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conyuge" EntityType="Self.Conyuge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleador" EntityType="Self.Empleador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trabajador" EntityType="Self.Trabajador" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Beneficia__Traba__5535A963" Association="Self.FK__Beneficia__Traba__5535A963">
+      <End Role="Trabajador" EntitySet="Trabajador" />
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Conyuge__Trabaja__5441852A" Association="Self.FK__Conyuge__Trabaja__5441852A">
+      <End Role="Trabajador" EntitySet="Trabajador" />
+      <End Role="Conyuge" EntitySet="Conyuge" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleador__Traba__534D60F1" Association="Self.FK__Empleador__Traba__534D60F1">
+      <End Role="Trabajador" EntitySet="Trabajador" />
+      <End Role="Empleador" EntitySet="Empleador" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

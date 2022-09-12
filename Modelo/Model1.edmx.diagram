@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f20973f76c0410bb8a2441fc90c9e4e" Name="Diagram1">
+        <EntityTypeShape EntityType="ColsubsidioModel.Beneficiario" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColsubsidioModel.Ciudades" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColsubsidioModel.Conyuge" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColsubsidioModel.Empleador" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColsubsidioModel.Empresas" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ColsubsidioModel.Trabajador" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="ColsubsidioModel.FK__Beneficia__Traba__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ColsubsidioModel.FK__Conyuge__Trabaja__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ColsubsidioModel.FK__Empleador__Traba__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

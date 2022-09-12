@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ColsubsidioModelStoreContainer" CdmEntityContainer="ColsubsidioEntities">
+    <EntitySetMapping Name="Beneficiario">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Beneficiario">
+        <MappingFragment StoreEntitySet="Beneficiario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+          <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+          <ScalarProperty Name="BeneficiarioTipoId" ColumnName="BeneficiarioTipoId" />
+          <ScalarProperty Name="BeneficiarioId" ColumnName="BeneficiarioId" />
+          <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+          <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="IdParentesco" ColumnName="IdParentesco" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ciudades">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Ciudades">
+        <MappingFragment StoreEntitySet="Ciudades">
+          <ScalarProperty Name="Ciudad_Id" ColumnName="Ciudad_Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="EpsSucursalId" ColumnName="EpsSucursalId" />
+          <ScalarProperty Name="CodDepartamento" ColumnName="CodDepartamento" />
+          <ScalarProperty Name="CodMunicipio" ColumnName="CodMunicipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conyuge">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Conyuge">
+        <MappingFragment StoreEntitySet="Conyuge">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+          <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+          <ScalarProperty Name="BeneficiarioTipoId" ColumnName="BeneficiarioTipoId" />
+          <ScalarProperty Name="BeneficiarioId" ColumnName="BeneficiarioId" />
+          <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+          <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+          <ScalarProperty Name="FechaIngresoEmpresa" ColumnName="FechaIngresoEmpresa" />
+          <ScalarProperty Name="SalarioBasico" ColumnName="SalarioBasico" />
+          <ScalarProperty Name="TrabajaConyugue" ColumnName="TrabajaConyugue" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="RecibeSub" ColumnName="RecibeSub" />
+          <ScalarProperty Name="CajaSub" ColumnName="CajaSub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleador">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Empleador">
+        <MappingFragment StoreEntitySet="Empleador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+          <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+          <ScalarProperty Name="Tipo_Novedad" ColumnName="Tipo_Novedad" />
+          <ScalarProperty Name="FechaRadicacion" ColumnName="FechaRadicacion" />
+          <ScalarProperty Name="TipoIdentificacionEmpresa" ColumnName="TipoIdentificacionEmpresa" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="DigitoVerificacion" ColumnName="DigitoVerificacion" />
+          <ScalarProperty Name="Nombre_RazonSocial" ColumnName="Nombre_RazonSocial" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Empresas">
+        <MappingFragment StoreEntitySet="Empresas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nit" ColumnName="Nit" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Razon" ColumnName="Razon" />
+          <ScalarProperty Name="DV" ColumnName="DV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trabajador">
+      <EntityTypeMapping TypeName="ColsubsidioModel.Trabajador">
+        <MappingFragment StoreEntitySet="Trabajador">
+          <ScalarProperty Name="TrabajadorId" ColumnName="TrabajadorId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TipoBeneficiario" ColumnName="TipoBeneficiario" />
+          <ScalarProperty Name="trabajadorTipoId" ColumnName="trabajadorTipoId" />
+          <ScalarProperty Name="Nombre1" ColumnName="Nombre1" />
+          <ScalarProperty Name="Nombre2" ColumnName="Nombre2" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+          <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+          <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="IdNivelOcupacion" ColumnName="IdNivelOcupacion" />
+          <ScalarProperty Name="IdNivelEducativo" ColumnName="IdNivelEducativo" />
+          <ScalarProperty Name="FechaIngresoEmpresa" ColumnName="FechaIngresoEmpresa" />
+          <ScalarProperty Name="HorasMes" ColumnName="HorasMes" />
+          <ScalarProperty Name="Trabajador1" ColumnName="Trabajador" />
+          <ScalarProperty Name="SalarioBasico" ColumnName="SalarioBasico" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="EPS" ColumnName="EPS" />
+          <ScalarProperty Name="AFP" ColumnName="AFP" />
+          <ScalarProperty Name="Direccion_V" ColumnName="Direccion_V" />
+          <ScalarProperty Name="Ciudad_V" ColumnName="Ciudad_V" />
+          <ScalarProperty Name="Dpto_V" ColumnName="Dpto_V" />
+          <ScalarProperty Name="Zona_V" ColumnName="Zona_V" />
+          <ScalarProperty Name="Telefono_V" ColumnName="Telefono_V" />
+          <ScalarProperty Name="Direccion_T" ColumnName="Direccion_T" />
+          <ScalarProperty Name="Ciudad_T" ColumnName="Ciudad_T" />
+          <ScalarProperty Name="Dpto_T" ColumnName="Dpto_T" />
+          <ScalarProperty Name="Zona_T" ColumnName="Zona_T" />
+          <ScalarProperty Name="Telefono_T" ColumnName="Telefono_T" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,110 @@
+
+
+string[] ArrayTrabajador = new string[38] {"0", "7/2/2022", "80763824", "1", "80763824", "1", "EDGAR", "EDUARDO", "MACIAS", "NULL", "10/24/1983", "2", "48", "4", "1", "05/27/2022", "240", "1000000", "8903906", "3023330480", "KR 46 73 42 SUR", "11", "11001", "EDGARPAOLALAURASANTI123456@HOTMAIL.COM", "3", "1", "NULL", "NULL", "NULL", "NULL", "812597", "827854", "3", "2022 - 07 - 05 08:07:37.903", "NULL", "1", "1", "1"};              
+
+
+List<string> datos = new List<string>();
+                    datos.Add(Trabajador);
+
+                    ArrayTrabajador = datos.ToArray()
+
+List<string> DatosEmpleador = new List<string>();
+                    string[] ArrayEmpleador = new string[6];
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        Empleador = Convert.ToString(this.DataDetalles.SelectedRows[1].Cells[i].Value);
+                        DatosEmpleador.Add(Empleador);
+
+                    }
+                    ArrayEmpleador= DatosEmpleador.ToArray();
+
+//1. TIPO DE NOVEDAD
+
+                    switch (ArrayEmpleador[0])
+                    {
+                        case "1": // Afiliación
+                            pdfFormFields.SetField("Casilla de verificación1", "0");
+                            break;
+
+                        case "2": // Novedad
+                            pdfFormFields.SetField("Casilla de verificación2", "0");
+                            break;
+
+                        case "3": // Traslado
+                            pdfFormFields.SetField("Casilla de verificación3", "0");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error de tipo de novedad afiliación");
+                            break;
+                    }
+
+                    //Fecha de radicación
+                    pdfFormFields.SetField("Texto1", ArrayEmpleador[6].Substring(3, 2)); // Día 
+                    pdfFormFields.SetField("Texto2", ArrayEmpleador[6].Substring(0, 2)); // Mes 
+                    pdfFormFields.SetField("Texto3", ArrayEmpleador[6].Substring(6, 4)); // Año 
+
+ //3. DATOS DEL EMPLEADOR O ENTIDAD PAGADORA
+
+                    switch (ArrayEmpleador[1]) // Tipo de identidad 
+                    {
+                        case "7": // Nit
+                            pdfFormFields.SetField("Casilla de verificación16", "0");
+                            break;
+
+                        case "1": // Cedula de ciudadania (C.C.)
+                            pdfFormFields.SetField("Casilla de verificación17", "0");
+                            break;
+
+                        case "3": // Cedula Extranjera (CE) 
+                            pdfFormFields.SetField("Casilla de verificación21", "0");
+                            break;
+
+                        case "4": //  Pasaporte (PA)                                        
+                            pdfFormFields.SetField("Casilla de verificación22", "0");
+                            break;
+
+                        case "2": // Carnet (C.D.)
+                            pdfFormFields.SetField("Casilla de verificación23", "0");
+                            break;
+
+                        case "6": // Permiso Especial (P.E) 
+                            pdfFormFields.SetField("Casilla de verificación24", "0");
+                            break;
+
+                        case "9": // Permiso Turismo (P.T) 
+                            pdfFormFields.SetField("Casilla de verificación25", "0");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error en el tipo de documento, entidad pagadora");
+                            break;
+                    }
+
+                    pdfFormFields.SetField("Texto7", ArrayEmpleador[2] + "-" + ArrayEmpleador[3]); // No. de identidad pagadora
+                    pdfFormFields.SetField("Texto9", "Sin nombre"); // Nombre o Razón Social
+
+                    //Sector
+                    switch (ArrayEmpleador[4])
+                    {
+                        case "1":  // Oficial Público
+                            pdfFormFields.SetField("Casilla de verificación26", "0");
+                            break;
+
+                        case "2": // Privado
+                            pdfFormFields.SetField("Casilla de verificación27", "0");
+                            break;
+
+                        case "3": // Mixto
+                            pdfFormFields.SetField("Casilla de verificación28", "0");
+                            break;
+
+                        default:
+                            MessageBox.Show("Error de sector, entidad pagadora");
+                            break;
+                    }
+
+                    pdfFormFields.SetField("Texto10", " "); // Sucursal 
+                    pdfFormFields.SetField("Texto13", " "); // Dirección
+                    pdfFormFields.SetField("Texto12", " "); // Departamento
+                    pdfFormFields.SetField("Texto11", " "); // Teléfono
